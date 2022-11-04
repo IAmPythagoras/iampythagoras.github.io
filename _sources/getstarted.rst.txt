@@ -5,13 +5,15 @@ Firstly, in order to install this library execute the following function in your
 
 .. code-block:: text
 
-    pip install ffxiv-combat-simulator@git+https://github.com/IAmPythagoras/FFXIV-Combat-Simulator.git@fixingLibraryimportbugs
+    pip install ffxiv-combat-simulator@git+https://github.com/IAmPythagoras/FFXIV-Combat-Simulator.git@main
 
 In this first page, it will be explained to you how to simulate your first fight
 using the **ffxivcalc** library. 
 
 .. note::
-    This is a very short and basic introduction to this library. If you want to read about more high level stuff click HERE.
+
+    Once you are familiar with the library, you can use  `this layout <https://github.com/IAmPythagoras/FFXIV-Combat-Simulator/blob/main/ffxivcalc_layout.py>`_ in order to make it easier to write your own simulations.
+
 
 The **ffxivcalc** library functions by having multiple class interacting with eachother. Each classes serves a purpose in the simulator and you must become
 slightly familiar with some of them in order to run your own simulations.
