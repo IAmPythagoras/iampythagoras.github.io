@@ -1,0 +1,25 @@
+.. ffxiv-combat-simulator documentation master file, created by
+   sphinx-quickstart on Wed Nov  2 16:54:39 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to ffxiv-combat-simulator's documentation!
+==================================================
+
+**FFXIV-combat-simulator** or **ffxivcalc** for short, is a library/API that lets anyone simulate combat from the game 
+*Final Fantasy XIV Online*. It can be used to simulate any sort of rotation with any sort of team composition. It even allows
+for completely customized actions to be performed by a player. This tool will let people (and you) experiment and optimize rotations and even entire raids in
+order to get lower kill times and higher DPS. This tool can do much more, and you can find all about it here. 
+
+.. note::
+   
+   This project AND the documentation is still under development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.
+
+.. toctree::
+   :caption: Contents:
+   
+
+   getstarted
+   customize_spell
+
+

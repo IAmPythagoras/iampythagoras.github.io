@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to ffxiv-combat-simulator’s documentation! &mdash; ffxiv-combat-simulator 0.71.19 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="getstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> ffxiv-combat-simulator
+          </a>
+              <div class="version">
+                0.71.19
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize_spell.html">Customize Spell object</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">ffxiv-combat-simulator</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Welcome to ffxiv-combat-simulator’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-ffxiv-combat-simulator-s-documentation">
+<h1>Welcome to ffxiv-combat-simulator’s documentation!<a class="headerlink" href="#welcome-to-ffxiv-combat-simulator-s-documentation" title="Permalink to this heading"></a></h1>
+<p><strong>FFXIV-combat-simulator</strong> or <strong>ffxivcalc</strong> for short, is a library/API that lets anyone simulate combat from the game
+<em>Final Fantasy XIV Online</em>. It can be used to simulate any sort of rotation with any sort of team composition. It even allows
+for completely customized actions to be performed by a player. This tool will let people (and you) experiment and optimize rotations and even entire raids in
+order to get lower kill times and higher DPS. This tool can do much more, and you can find all about it here.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project AND the documentation is still under development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getstarted.html#fight-class">Fight Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getstarted.html#player-class">Player class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getstarted.html#spell-class">Spell class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#base-spell">Base Spell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#role-spell">Role Spell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#job-spell">Job_Spell</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getstarted.html#fight-simulatefight">Fight.SimulateFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getstarted.html#more-code-examples">More code examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-a-blackmage-but-with-requirementson-false">Simulating a BlackMage but with <em>RequirementsOn</em> = False</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulate-a-dancer-and-ninja-opener-with-the-ninja-being-the-dancer-s-dance-partner">Simulate a Dancer and Ninja opener with the Ninja being the Dancer’s dance partner.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-two-ninjas-doing-the-exact-same-opener">Simulating two Ninjas doing the exact same opener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-a-standard-8-man-raid-doing-their-opener">Simulating a standard 8 man raid doing their opener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted.html#importing-gear-from-etro-gg">Importing gear from etro.gg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="customize_spell.html">Customize Spell object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="customize_spell.html#hierarchy-of-spell">Hierarchy of Spell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customize_spell.html#modify-potency-mana-cost-cast-time-recast-time-etc-of-an-action">Modify potency, mana cost, cast time, recast time, etc. of an action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#make-a-deepcopy-of-an-action">Make a deepcopy of an action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-potency">Modify Potency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-casting-time-and-recast-time">Modify Casting time and recast time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-mana-cost">Modify mana cost</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="customize_spell.html#requirement-and-effect">Requirement and Effect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#spell-requirement">Spell Requirement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#spell-effect">Spell Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-requirement">Modify Requirement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-effect">Modify Effect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getstarted.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
