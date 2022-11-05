@@ -1,0 +1,248 @@
+Customize Fight
+===============
+
+There are certain things you can do in order to customize, or more accurately "overwrite" what the *Fight* object does. 
+
+But before, it is important to look more into the *SimulateFight()* function.
+
+As you know by now this function simulates a *Fight* object. Here is a short overview of its code :
+
+.. code-block:: python
+
+    def SimulateFight(time_unit, time_limit, vocal):
+
+        ...
+        Preprocessing logic
+        ...
+
+        self.timestamp = 0
+        # main loop
+        while (self.timestamp < time_limit>):
+
+            for player in self.PlayerList:
+
+                # Checks if the player can do an action
+                # if it can it does it and applies the action
+
+                # Checks if DOTs have to be applied
+
+                # Checks if some effects on the player have to be removed
+
+                # Update the temporal state of the player
+                
+                if player.has_no_more_actions() : 
+                    self.NextActionFunction(self, player)
+                    # We can use a function to give the player 1 more action.
+                    # By default this function is empty
+
+            if all players are done : break
+
+            self.ExtractInfo(self)
+            # Extract info is called every frame of the simulation and is used to
+            # extract any kind of information from the simulation
+
+            Some other logic
+            ...
+
+        # Fight finish
+        ...
+        post processing logic
+        ...
+
+.. note:: 
+
+    I higly recommend to go check the *Fight.py* code in order to get a better understanding of this whole thing. You can find it `here <https://github.com/IAmPythagoras/FFXIV-Combat-Simulator/blob/main/ffxivcalc/Fight.py>`_ .
+
+This is a very short overview of how *SimulateFight()* works. It is not shown here, but the *Fight* class also has the *ComputeDamage()* function, which as its name implies computes the damage.
+
+There are 3 things that a user can overwrite from a *Fight* instance.
+
+* NextActionFunction()
+* ExtractInfo()
+* ComputeDamage().
+
+It will be explained what these functions represent and how to correctly overwrite them for your own need.
+
+NextActionFunction()
+--------------------
+
+This function is only called by the simulator when a player does not have any more actions to perform. When that is detected, the player is put in a *NoMoreAction* state. Then 
+the simulator takes that player and will call the Fight's *NextActionFunction()*. By default, this function does nothing and so the Simulator simply puts the player into a *TrueLock*
+state which signifies that the player has nothing more to do and is in a sleeping state until the simulation finishes.
+
+.. note::
+
+    Even if a player is in a *TrueLock* state, any DOTs or effect they applied is still being taken care off. It will also still perform auto-attacks.
+
+However, it would be possible to overwrite this function in order to let the simulator give more actions to the player if the user decides so. For example, if someone trains an AI, then at this point 
+the AI could be used to find the next best action that the player should perform. Here is the skeleton of this function:
+
+.. code-block:: python
+
+    def NextActionFunction(Fight : FightObject, Player : PlayerObject) -> bool:
+    """
+    This function takes as input the currently simulating fight and the player for which we are trying to find a new action.
+    It returns a boolean value corresponding to weither we added a new action.
+    """
+
+    logic...
+
+    if newaction : return True
+    else return False
+
+The returned boolean value lets the simulator know if it puts the player into a *TrueLock* state or if it lets the player execute more actions.
+
+In order to overwrite this function, you simply need to write such a function and change the *Fight* instance's *NextActionFunction* field by doing so :
+
+.. code-block:: python
+
+    # Assuming newFight is a correctly created Fight instance
+
+    def NewNextActionFunction(Fight, Player):
+
+        ...
+        logic
+        ...
+
+        if newaction : return True
+        else : return false
+
+    newFight.NextActionFunction = NewNextActionFunction
+
+NextActionFunction() overwrite example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Say we want a Blackmage to perform *Fire 1* until the end of a simulation rather than just stop. 
+
+.. code-block:: python
+
+    def BlackMageNextAction(Fight, Player):
+
+        Player.AddAction(Fire1)
+
+        return True
+
+    newFight.NextActionFunction = BlackMageNextAction
+
+    newFight.SimulateFight(...)
+
+This will constantly make the BlackMage in the fight cast *Fire 1* when it is done with its rotation.
+
+.. warning::
+
+    The simulator does not check if an action is valid or an action a player can actually perform. For example, at this point I could have asked the Blackmage to perform
+    *Holmgang*, which is a Warrior spell. The simulator would have accepted but would have ran into an error when trying to actually cast the action. So you have to make sure
+    the action you are giving the player is an action it can actually perform.
+
+.. note:: 
+
+    When adding a new action to a player's action set, you can simply use the *AddAction()* function on the player and give as input the *Spell* instance you want it to cast next.
+
+
+ExtractInfo()
+-------------
+
+This function simply lets a user extract any kind of info from a fight simulation. By default it does nothing, but you can overwrite it to display or save some information/data during the simulation.
+
+Here is the skeleton of this function:
+
+.. code-block:: python
+
+    def ExtractInfo(Fight : FightObject) -> None:
+
+        ...
+        logic
+        ...
+        # Returns nothing
+
+So this function takes as argument a fight instance and returns nothing. Meaning that if you want to save information you have to either save it to a file or have it go to a global variable.
+
+
+ExtractInfo() overwrite example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Say we want the simulator to save in an array the mana of a player every frame of the iteration.
+
+.. code-block:: python
+
+    ...
+
+    ManaList = [] # Global variable
+
+    def newExtractInfo(Fight):
+
+        for player in Fight.PlayerList:
+            ManaList.append((player.playerID, player.TotalMana)) # This will append a tuple consisting of the player's ID and of its total mana
+        
+    newFight.ExtractInfo = newExtractInfo
+
+    newFight.SimulateFight(...)
+
+This will be executed every frame of the simulation and will let you take whatever information out of the simulation that you might need.
+
+ComputeDamage()
+---------------
+
+This function computes the damage from an action given its potency, player stats, etc.
+
+It is a fairly complex function compared to the other previous 2, so I suggest to not change it. But if needs be then it shall be.
+
+Here is the skeleton of this function:
+
+.. code-block:: python
+
+    def ComputeDamage(Player : PlayerObj, Potency : int, Enemy : EnemyObj, SpellBonus : float, type : int, spellObj : SpellObj) -> float, float:
+    
+    computation logic
+    ...
+
+    return non_crit_dh_expected_damage, crit_dh_expected_damage
+
+First let us look into the different inputs.
+
+* Player -> Player object casting the action
+* Potency -> Potency of the action
+* Enemy -> Enemy object of the simulation 
+* SpellBonus -> float value used to remember the damage bonus on DOTs
+* type -> integer value used to differentiate between the 4 types of damage : Physical DOTs, Magical DOTs, Auto-attacks and regular action
+* spellObj -> Spell object of the action we are casting
+
+.. note::
+
+    The types values are : type = 0 (regular action), type = 1 (magical DOT), type = 2(physical DOT), type = 3 (Auto-attacks)
+
+.. warning::
+
+    if you overwrite this function, your new function must accept all of these inputs.
+
+Furthermore, this function returns two different values. In the current state of the simulator only one of these value is necessary (the 2nd one), so you can only return 
+twice the same value. This page will be updated when using the two values will have an actual usage.
+
+ComputeDamage() overwrite example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Say we want to overwrite said function and have it just return twice the potency as damage only if type is 0, else we return 0.
+
+.. code-block:: python
+
+    def newComputeDamage(Player, Potency, Enemy, SpellBonus, type, spellObj):
+
+        if type == 0: return 2*potency, 2*potency
+
+        return 0, 0
+
+    newFight.ComputeDamage = newComputeDamage
+
+    newFight.SimulateFight(...)
+
+This will succesfully overwrite the ComputeDamage function.
+
+.. note::
+
+    If you simply wish to change some small things from the original *ComputeDamage()* function you can copy the original code found `here <https://github.com/IAmPythagoras/FFXIV-Combat-Simulator/blob/main/ffxivcalc/Fight.py>`_
+    and copy it to a new function that you can then modify to your own pleasure.
+
+
+
+
+            

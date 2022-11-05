@@ -17,9 +17,9 @@ order to get lower kill times and higher DPS. This tool can do much more, and yo
 
 .. toctree::
    :caption: Contents:
-   
 
    getstarted
    customize_spell
+   customize_fight
 
 
