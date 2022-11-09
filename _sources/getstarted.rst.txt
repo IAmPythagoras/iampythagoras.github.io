@@ -1,3 +1,11 @@
+.. Here is my ASCII art kirbo fan art
+    
+      _________
+     /       . \
+    (   .       )
+     \     O   /
+      \/     \/
+
 Introduction
 ============
 

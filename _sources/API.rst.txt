@@ -1,3 +1,5 @@
+.. I'm just a webpage, what were you expecting?
+
 API documentation
 =================
 
@@ -274,3 +276,7 @@ ProcsInfo
 
 This contains information regarding the number of used proc by a player as well as the number of expected proc. This lets someone see how realistic the rotation they are doing in the simulation
 is.
+
+
+
+.. I kind of agree with the main page, leylines relative.

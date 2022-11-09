@@ -1,7 +1,6 @@
-.. ffxiv-combat-simulator documentation master file, created by
-   sphinx-quickstart on Wed Nov  2 16:54:39 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. hello you found me.
+.. Always remember child.
+.. EVERY FIGHT IS LEYLINES RELATIVE
 
 Welcome to ffxiv-combat-simulator's documentation!
 ==================================================
@@ -11,6 +10,15 @@ Welcome to ffxiv-combat-simulator's documentation!
 for completely customized actions to be performed by a player. This tool will let people (and you) experiment and optimize rotations and even entire raids in
 order to get lower kill times and higher DPS. This tool can do much more, and you can find all about it here. 
 
+If you are not very familiar with code but still want to simulate simply read the *User interface* part.
+
+Feel free to join the discord for any questions : 
+
+.. image:: https://img.shields.io/discord/970724799464738977?color=7289da&label=Discord&logo=discord
+  :width: 200
+  :alt: Spell_class_diagram
+
+
 .. note::
    
    This project AND the documentation is still under development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.
@@ -18,6 +26,7 @@ order to get lower kill times and higher DPS. This tool can do much more, and yo
 .. toctree::
    :caption: Contents:
 
+   userinterface
    getstarted
    customize_spell
    customize_fight

@@ -1,3 +1,5 @@
+.. I think sometime its all right if your cat has a little salami
+
 Customize Spell object
 ======================
 
