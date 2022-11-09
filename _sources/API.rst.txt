@@ -1,0 +1,276 @@
+API documentation
+=================
+
+In order to make it easier for certain people to use the **ffxiv-combat-simulator**, it can be used as an API that will process requests to simulate fights
+and return values corresponding to the result of the simulation.
+
+As of now, there is no public server on which the API is running, meaning that you will have to run it locally. The documentation will be updated as soon as such a public API
+is available. For now, we will shown how to host the API locally so you can use it anyway.
+
+Locally host the API
+--------------------
+
+The first thing you will need to install is *uvicorn*.
+
+.. code-block:: text
+
+    pip install uvicorn
+
+Now simply run this command:
+
+.. code-block:: text
+
+    python -m uvicorn ffxivcalc.API.API:app 
+
+This will launch the API on your local machine. There is documentation generated at *HOSTING_ADDRESS/docs*, but the big lines will be explained here.
+
+.. note::
+
+    The generated documentation is more useful than what will be explained here since it will let you try some requests to the API.
+    Hence I recommend to simply host the API locally and go read the generated documentation.
+
+Simulate a fight using the API
+------------------------------
+
+The API's most useful function is to let anyone request the simulation of a fight. In order to do so, we have designed a JSON file format which the API can read and translate into
+a *Fight* object that can then be ran by the simulator. Afterward, the API will translate the *Fight* object's result into a JSON file that will then be returned by the API. 
+
+Here is an example of a JSON file the API is expecting as input: 
+
+.. code-block:: javascript
+
+    {
+        "data": {
+            "fightInfo": {
+                "fightDuration": 500,
+                "time_unit": 0.01,
+                "ShowGraph": false,
+                "RequirementOn": false,
+                "IgnoreMana": false
+            },
+            "PlayerList": [
+                {
+                    "JobName": "BlackMage",
+                    "playerID": 1,
+                    "stat": {
+                        "MainStat": 390,
+                        "WD": 0,
+                        "Det": 390,
+                        "Ten": 400,
+                        "SS": 400,
+                        "Crit": 400,
+                        "DH": 400
+                    },
+                    "etro_gearset_url": "Put a URL here if you want. The code will only overwirte the stats if it detects an etro url.",
+                    "Auras": [],
+                    "actionList": [
+                        {
+                            "actionName": "FireIII"
+                        },
+                        {
+                            "actionName": "Xenoglossy"
+                        },                    {
+                            "actionName": "Xenoglossy"
+                        },                    {
+                            "actionName": "Xenoglossy"
+                        },                    {
+                            "actionName": "Xenoglossy"
+                        },                    {
+                            "actionName": "Xenoglossy"
+                        },                    {
+                            "actionName": "FireI"
+                        },                    {
+                            "actionName": "FireI"
+                        },                    {
+                            "actionName": "FireI"
+                        },                    {
+                            "actionName": "FireI"
+                        },                    {
+                            "actionName": "FireI"
+                        },                    {
+                            "actionName": "FireI"
+                        },                    {
+                            "actionName": "FireI"
+                        }
+                    ]
+                },
+                {
+                    "JobName": "Bard",
+                    "playerID": 2,
+                    "stat": {
+                        "MainStat": 390,
+                        "WD": 0,
+                        "Det": 390,
+                        "Ten": 400,
+                        "SS": 400,
+                        "Crit": 400,
+                        "DH": 400
+                    },
+                    "etro_gearset_url": "Put a URL here if you want. The code will only overwirte the stats if it detects an etro url.",
+                    "Auras": [],
+                    "actionList": [
+                        {
+                            "actionName": "RefulgentArrow"
+                        },
+                        {
+                            "actionName": "BurstShot"
+                        },                    {
+                            "actionName": "RefulgentArrow"
+                        },                    {
+                            "actionName": "RefulgentArrow"
+                        },                    {
+                            "actionName": "RefulgentArrow"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+
+And here is the returned JSON file of the above requested simulation :
+
+.. code-block:: javascript
+
+    {
+    "data": {
+        "fightInfo": {
+        "fightDuration": 32.87,
+        "maxfightDuration": 500,
+        "fightname": "ayo",
+        "TeamCompositionBonus": 1.02,
+        "failedRequirementEventList": [
+            {
+            "timeStamp": 0,
+            "playerID": 2,
+            "requirementName": "RefulgentArrowRequirement",
+            "additionalInfo": "",
+            "fatal": false
+            },
+            {
+            "timeStamp": 2.76,
+            "playerID": 1,
+            "requirementName": "PolyglotRequirement",
+            "additionalInfo": "",
+            "fatal": false
+            },
+            {
+            "timeStamp": 5.27,
+            "playerID": 1,
+            "requirementName": "PolyglotRequirement",
+            "additionalInfo": "player had to wait for or would have to wait for 27.489999999999608 seconds.",
+            "fatal": false
+            },
+            {
+            "timeStamp": 6.78,
+            "playerID": 2,
+            "requirementName": "RefulgentArrowRequirement",
+            "additionalInfo": "",
+            "fatal": false
+            },
+            {
+            "timeStamp": 7.78,
+            "playerID": 1,
+            "requirementName": "PolyglotRequirement",
+            "additionalInfo": "player had to wait for or would have to wait for 24.979999999999215 seconds.",
+            "fatal": false
+            },
+            {
+            "timeStamp": 9.29,
+            "playerID": 2,
+            "requirementName": "RefulgentArrowRequirement",
+            "additionalInfo": "",
+            "fatal": false
+            },
+            {
+            "timeStamp": 10.29,
+            "playerID": 1,
+            "requirementName": "PolyglotRequirement",
+            "additionalInfo": "player had to wait for or would have to wait for 22.469999999998823 seconds.",
+            "fatal": false
+            },
+            {
+            "timeStamp": 12.8,
+            "playerID": 1,
+            "requirementName": "PolyglotRequirement",
+            "additionalInfo": "player had to wait for or would have to wait for 19.95999999999843 seconds.",
+            "fatal": false
+            },
+            {
+            "timeStamp": 27.86,
+            "playerID": 1,
+            "requirementName": "ManaRequirement",
+            "additionalInfo": "",
+            "fatal": false
+            },
+            {
+            "timeStamp": 30.37,
+            "playerID": 1,
+            "requirementName": "ManaRequirement",
+            "additionalInfo": "",
+            "fatal": false
+            }
+        ],
+        "Success": true
+        },
+        "PlayerList": [
+        {
+            "JobName": "BlackMage",
+            "ExpectedDPS": 142.19,
+            "PotencyPerSecond": 198.6,
+            "TotalDamage": 4674,
+            "TotalPotency": 6528,
+            "numberOfGCD": 13,
+            "ProcInfo": {},
+            "GraphInfoDPS": [],
+            "GraphInfoPPS": []
+        },
+        {
+            "JobName": "Bard",
+            "ExpectedDPS": 40.79,
+            "PotencyPerSecond": 74.23,
+            "TotalDamage": 1341,
+            "TotalPotency": 2440,
+            "numberOfGCD": 5,
+            "ProcInfo": {
+            "RefulgentArrow": {
+                "Expected": 0.35,
+                "Used": 4
+            },
+            "WandererRepertoire": {
+                "Expected": 0,
+                "Used": 0
+            },
+            "SoulVoiceGauge": {
+                "Expected": 0,
+                "Used": 0
+            },
+            "BloodLetterReduction": {
+                "Expected": 0,
+                "Used": 0
+            }
+            },
+            "GraphInfoDPS": [],
+            "GraphInfoPPS": []
+        }
+        ]
+    }
+    }
+
+.. note::
+
+    The *GraphInfoDPS* and *GraphInfoPPS* generally have informations needed to genereted a *DPS Vs. Time* or *PPS Vs. Time* graph, but were not included
+    in the above example in order to shorten it.
+
+
+failedRequirementEventList
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This contains a list of all times when a player ran into a possible problem when casting an action. The event contains informations like that requirement was failed, at what time, what player, 
+maybe some additonal informations and if the requirement was fatal (if it was fatal then it made the simulation stop).
+
+ProcsInfo
+^^^^^^^^^
+
+This contains information regarding the number of used proc by a player as well as the number of expected proc. This lets someone see how realistic the rotation they are doing in the simulation
+is.

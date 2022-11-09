@@ -274,6 +274,10 @@ Say instead of only augmenting Astral fire by 1 we want our new action to augmen
 We can now simulate a *Blackmage* using this new action and see the result.
 
 .. code-block:: python
+    
+    # ...
+    # Code to setup blackmage player and fight
+    # ...
 
     from ffxivcalc.Jobs.Caster.Blackmage.BlackMage_Spell import *
     from copy import deepcopy
