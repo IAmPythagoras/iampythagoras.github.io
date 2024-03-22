@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base_Spell &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Spell" href="spellObj/spellClass.html" />
+    <link rel="prev" title="Shield.UpdateTimer()" href="../Player/Shield/shieldUpdateTimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../jobs.html">Jobs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Player/player.html">Player</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Base_Spell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/spellClass.html">Spell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PreBakedAction/preBakedActionClass.html">PreBakedAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZipAction/zipActionClass.html">ZipAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buff/buffClass.html">buff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BuffHistory/buffHistoryClass.html">buffHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BuffPercentageHistory/buffPercentageHistoryClass.html">buffPercentageHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ActionEnum/actionEnumClass.html">ActionEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlayerEnum/playerEnumClass.html">PlayerEnum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../GearSolver/gearSolverModule.html">GearSolver</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../jobs.html">Jobs</a> &raquo;</li>
+      <li>Base_Spell</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/documentation/Jobs/Base_Spell/baseSpell.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="base-spell">
+<h1>Base_Spell<a class="headerlink" href="#base-spell" title="Permalink to this heading"></a></h1>
+<p>The <em>Base_Spell</em> module is responsible for the logic of all actions. It takes care of the logic of when an action is being casted, is casted, etc.</p>
+<p>This module contains the following class : Spell, ZIPAction, PreBakedAction, buff, buffHistory, DOTSpell, HOTSpell, Auto_Attack, Queen_Auto, Melee_Auto, Ranged_Auto and Monk_AA.</p>
+<p><strong>Import</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Base_Spell</span> <span class="kn">import</span> <span class="n">Spell</span><span class="p">,</span> <span class="n">ZIPAction</span><span class="p">,</span> <span class="n">PreBakedAction</span><span class="p">,</span> <span class="n">buff</span><span class="p">,</span> <span class="n">buffHistory</span><span class="p">,</span> <span class="n">DOTSpell</span><span class="p">,</span> <span class="n">HOTSpell</span><span class="p">,</span> <span class="n">Auto_Attack</span><span class="p">,</span> <span class="n">Queen_Auto</span><span class="p">,</span> <span class="n">Melee_Auto</span><span class="p">,</span> <span class="n">Ranged_Auto</span><span class="p">,</span> <span class="n">Monk_AA</span>
+</pre></div>
+</div>
+<p><strong>Module class</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spellObj/spellClass.html">Spell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spellObj/spellInit.html">Spell.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spellObj/spellCast.html">Spell.Cast()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spellObj/spellCastFinal.html">Spell.CastFinal()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spellObj/DOTSpell/dotSpellClass.html">DOTSpell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/DOTSpell/dotSpellInit.html">DOTSpell.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/DOTSpell/dotSpellResetBuffSnapshot.html">DOTSpell.resetBuffSnapshot()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/DOTSpell/dotSpellSetBuffSnapshot.html">DOTSpell.setBuffSnapshot()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/DOTSpell/dotSpellCheckDOT.html">DOTSpell.CheckDOT()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/DOTSpell/HOTSpell/hotSpellClass.html">HOTSpell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spellObj/DOTSpell/HOTSpell/hotSpellInit.html">HOTSpell.__init__()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spellObj/DOTSpell/Auto_Attack/autoAttackClass.html">Auto_Attack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spellObj/DOTSpell/Auto_Attack/autoAttackInit.html">Auto_Attack.__init__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spellObj/DOTSpell/Auto_Attack/autoAttackCheckDOT.html">Auto_Attack.CheckDOT()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spellObj/DOTSpell/Auto_Attack/meleeAAClass.html">Melee_Auto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spellObj/DOTSpell/Auto_Attack/rangedAAClass.html">Ranged_Auto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PreBakedAction/preBakedActionClass.html">PreBakedAction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PreBakedAction/preBakedActionInit.html">PreBakedAction.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PreBakedAction/preBakedActionResetPercentageBonus.html">PreBakedAction.resetPercentageBonus()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PreBakedAction/preBakedActionComputeExpectedDamage.html">PreBakedAction.ComputeExpectedDamage()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PreBakedAction/preBakedActionComputeRandomDamage.html">PreBakedAction.ComputeRandomDamage()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ZipAction/zipActionClass.html">ZipAction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ZipAction/zipActionInit.html">ZipAction.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ZipAction/zipActionComputeRandomDamage.html">ZipAction.ComputeRandomDamage()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Buff/buffClass.html">buff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Buff/buffInit.html">buff.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buff/buffIsEqual.html">buff.isEqual()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buff/buffStr.html">buff.__str__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buff/buffRepr.html">buff.__repr__()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BuffHistory/buffHistoryClass.html">buffHistory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BuffHistory/buffHistoryInit.html">buffHistory.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BuffHistory/buffHistoryStr.html">buffHistory.__str__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BuffHistory/buffHistoryIsUp.html">buffHistory.isUp()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BuffPercentageHistory/buffPercentageHistoryClass.html">buffPercentageHistory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BuffPercentageHistory/buffPercentageHistoryInit.html">buffPercentHistory.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BuffPercentageHistory/buffPercentageHistoryGetPercentBonus.html">buffPercentHistory.getPercentBonus()</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Player/Shield/shieldUpdateTimer.html" class="btn btn-neutral float-left" title="Shield.UpdateTimer()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spellObj/spellClass.html" class="btn btn-neutral float-right" title="Spell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

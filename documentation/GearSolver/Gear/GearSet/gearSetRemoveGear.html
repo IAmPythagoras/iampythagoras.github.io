@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GearSet.RemoveGear() &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="GearSet.getMateriaLimit()" href="gearSetGetMateriaLimit.html" />
+    <link rel="prev" title="GearSet.strMateriaNumber()" href="gearSetStrMateriaNumber.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../gearSolverModule.html">GearSolver</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../gearModule.html">Gear</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../gearImportGear.html">ImportGear()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GearObj/gearClass.html">Gear</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="gearSetClass.html">GearSet</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="gearSetInit.html">GearSet.__init__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetIter.html">GearSet.__iter__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetNext.html">GearSet.__next__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetRemoveMateriaType.html">GearSet.removeMateriaType()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetRemoveFirstFoundMateriaInvalidPiece.html">GearSet.removeFirstFoundMateriaInvalidPiece()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetRemoveMateriaSpecGear.html">GearSet.removeMateriaSpecGear()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetAddFood.html">GearSet.addFood()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetRemoveFood.html">GearSet.removeFood()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetStr.html">GearSet.__str__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetFindFirstPieceMateria.html">GearSet.findFirstPieceMateria()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetAddGear.html">GearSet.AddGear()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetStrMateriaNumber.html">GearSet.strMateriaNumber()</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">GearSet.RemoveGear()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetGetMateriaLimit.html">GearSet.getMateriaLimit()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetGetMateriaTypeLimit.html">GearSet.getMateriaTypeLimit()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetGetNumberMateria.html">GearSet.getNumberMateria()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetResetGearSet.html">GearSet.ResetGearSet()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetGetWeaponDelay.html">GearSet.getWeaponDelay()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetGetGearSetStat.html">GearSet.GetGearSetStat()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetHasValidMelding.html">GearSet.hasValidMelding()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gearSetGetMateriaTypeList.html">GearSet.getMateriaTypeList()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Stat/statClass.html">Stat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Food/foodClass.html">Food</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materia/materiaClass.html">Materia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MateriaGenerator/materiaGeneratorClass.html">MateriaGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GearType/gearTypeClass.html">GearType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StatType/statTypeClass.html">StatType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../gearSolverModule.html">GearSolver</a> &raquo;</li>
+          <li><a href="../gearModule.html">Gear</a> &raquo;</li>
+          <li><a href="gearSetClass.html">GearSet</a> &raquo;</li>
+      <li>GearSet.RemoveGear()</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/documentation/GearSolver/Gear/GearSet/gearSetRemoveGear.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gearset-removegear">
+<h1>GearSet.RemoveGear()<a class="headerlink" href="#gearset-removegear" title="Permalink to this heading"></a></h1>
+<p>This function removes the given GearType from the GearSet.GearSet dictionnary.</p>
+<p><strong>Parameter</strong></p>
+<ul class="simple">
+<li><p>Type : GearType - Type of the gear to remove.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If not Gear matches the Gear type nothing is done.</p>
+</div>
+<p><strong>Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newGearSet</span><span class="o">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">GearType</span><span class="o">.</span><span class="n">WEAPON</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gearSetStrMateriaNumber.html" class="btn btn-neutral float-left" title="GearSet.strMateriaNumber()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gearSetGetMateriaLimit.html" class="btn btn-neutral float-right" title="GearSet.getMateriaLimit()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

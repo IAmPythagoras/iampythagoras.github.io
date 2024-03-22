@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fight.SimulatePreBakedFight() &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fight.SimulateZIPFight()" href="fightSimulateZIPFight.html" />
+    <link rel="prev" title="Fight.playerForID()" href="fightPlayerForID.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="fight.html">Fight</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fightInnit.html">Fight.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightAddPlayer.html">Fight.AddPlayer()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightSimulateFight.html">Fight.SimulateFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightComputeFunctions.html">Fight.ComputeFunctions()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightDeepCopy.html">Fight.deepCopy()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightGetEnemityList.html">Fight.GetEnemityList()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightPlayerForID.html">Fight.playerForID()</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fight.SimulatePreBakedFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fightSimulateZIPFight.html">Fight.SimulateZIPFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computeDamage.html">ComputeDamage()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GearSolver/gearSolverModule.html">GearSolver</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="fight.html">Fight</a> &raquo;</li>
+      <li>Fight.SimulatePreBakedFight()</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/documentation/Fight/fightSimulatePreBakedFight.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fight-simulateprebakedfight">
+<h1>Fight.SimulatePreBakedFight()<a class="headerlink" href="#fight-simulateprebakedfight" title="Permalink to this heading"></a></h1>
+<p>This function simulates the damage done by the pre baked actions. The player ID with the pre baked actions must be given.
+The user must also specify all the damage values computed from the stats.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p>Index : int -Index of the player with the PreBakedActions in the Fight.PlayerList list.</p></li>
+<li><p>MainStat : int -Main stat’s value.</p></li>
+<li><p>f_WD : float - Damage value attributed to the weapon.</p></li>
+<li><p>f_DET : float - Damage value attributed to Determination.</p></li>
+<li><p>f_TEN : float - Damage value attributed to Tenacity.</p></li>
+<li><p>f_SPD : float - Damage value attributed to Spell Speed or Skill Speed.</p></li>
+<li><p>f_CritRate : float - Critical rate value.</p></li>
+<li><p>f_CritMult : float - Damange multiplier when a critical hit happens.</p></li>
+<li><p>f_DH : float - Direct Hit rate value.</p></li>
+<li><p>DHAuto : Direct Hit bonus to auto crit/DH.</p></li>
+<li><p>getInfo : bool - If set to true the function will return more information (DPS, TD, timeStamp, TP).</p></li>
+</ul>
+<p><strong>Return</strong></p>
+<p>This function returns the expected DPS and an empty dictionnary (float, dict). If getInfo is set to true
+the function returns the expected DPS, the expected total damage, the end time stamp and the total potency (float, int, float, int).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>f_WD, f_DET, f_TEN, f_SPD, f_CritRate, f_CritMult, f_DH, DHAuto can be obtained by calling the function <em>computeDamageValue</em> located in <em>GearSolver.Solver</em>.</p>
+</div>
+<p><strong>Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usage</span>
+<span class="kn">from</span> <span class="nn">ffxivcalc.GearSolver.Solver</span> <span class="kn">import</span> <span class="n">computeDamageValue</span>
+<span class="n">f_WD</span><span class="p">,</span> <span class="n">f_DET</span><span class="p">,</span> <span class="n">f_TEN</span><span class="p">,</span> <span class="n">f_SPD</span><span class="p">,</span> <span class="n">f_CritRate</span><span class="p">,</span> <span class="n">f_CritMult</span><span class="p">,</span> <span class="n">f_DH</span><span class="p">,</span> <span class="n">DHAuto</span> <span class="o">=</span> <span class="n">computeDamageValue</span><span class="p">(</span><span class="n">GearStat</span><span class="p">,</span> <span class="n">JobMod</span><span class="p">,</span> <span class="n">IsTank</span><span class="p">,</span> <span class="n">IsCaster</span><span class="p">)</span>
+<span class="n">ExpectedDamage</span><span class="p">,</span> <span class="n">randomDamageDict</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">potency</span> <span class="o">=</span> <span class="n">Fight</span><span class="o">.</span><span class="n">SimulatePreBakedFight</span><span class="p">(</span><span class="n">PlayerIndex</span><span class="p">,</span> <span class="n">GearStat</span><span class="p">[</span><span class="s2">&quot;MainStat&quot;</span><span class="p">],</span><span class="n">f_WD</span><span class="p">,</span> <span class="n">f_DET</span><span class="p">,</span> <span class="n">f_TEN</span><span class="p">,</span> <span class="n">f_SPD</span><span class="p">,</span> <span class="n">f_CritRate</span><span class="p">,</span> <span class="n">f_CritMult</span><span class="p">,</span> <span class="n">f_DH</span><span class="p">,</span> <span class="n">DHAuto</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">getInfo</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fightPlayerForID.html" class="btn btn-neutral float-left" title="Fight.playerForID()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fightSimulateZIPFight.html" class="btn btn-neutral float-right" title="Fight.SimulateZIPFight()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

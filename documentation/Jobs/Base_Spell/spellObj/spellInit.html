@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spell.__init__() &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Spell.Cast()" href="spellCast.html" />
+    <link rel="prev" title="Spell" href="spellClass.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../jobs.html">Jobs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Player/player.html">Player</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../baseSpell.html">Base_Spell</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="spellClass.html">Spell</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Spell.__init__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spellCast.html">Spell.Cast()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spellCastFinal.html">Spell.CastFinal()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DOTSpell/dotSpellClass.html">DOTSpell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PreBakedAction/preBakedActionClass.html">PreBakedAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ZipAction/zipActionClass.html">ZipAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Buff/buffClass.html">buff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../BuffHistory/buffHistoryClass.html">buffHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../BuffPercentageHistory/buffPercentageHistoryClass.html">buffPercentageHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ActionEnum/actionEnumClass.html">ActionEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PlayerEnum/playerEnumClass.html">PlayerEnum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GearSolver/gearSolverModule.html">GearSolver</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../jobs.html">Jobs</a> &raquo;</li>
+          <li><a href="../baseSpell.html">Base_Spell</a> &raquo;</li>
+          <li><a href="spellClass.html">Spell</a> &raquo;</li>
+      <li>Spell.__init__()</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/documentation/Jobs/Base_Spell/spellObj/spellInit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spell-init">
+<h1>Spell.__init__()<a class="headerlink" href="#spell-init" title="Permalink to this heading"></a></h1>
+<p>This is the constructor of the class</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p>id : int - Unique identifier of the action.</p></li>
+<li><p>GCD : bool - True if the action is a GCD.</p></li>
+<li><p>Potency : int - Potency of the action.</p></li>
+<li><p>ManaCost : int - Mana cost of the action.</p></li>
+<li><p>CastTime : float - Base casting time of the action.</p></li>
+<li><p>RecastTime : float - Base recast time of the action. Only GCD should have non zero recast time. This determines for how long the player is locked.</p></li>
+<li><p>Effect : function - Function to be applied once the action is casted.</p></li>
+<li><p>Requirement : list[function] - List of functions that checks if the action can be performed. All of the function must return True for the action to be legal.</p></li>
+<li><p>DPSBonus : float - Multiplicative bonus on damage.</p></li>
+<li><p>TargetID : int - Id of the target. 0 Means an enemy is being targetted and non zero ID is another player.</p></li>
+<li><p>TargetPlayerObject : Player - Player object of the player target (if it applies).</p></li>
+<li><p>type : int - Type of the action (0 = Ability, 1 = Spell, 2 = Weaponskill and 3 = Limit Break).</p></li>
+<li><p>AOEHeal : bool - True if the action is classfied as an AOE heal (ex: succor). (Default : False)</p></li>
+<li><p>TargetHeal : bool - True if the action has a healing target (ex: addloquium). (Default : False)</p></li>
+</ul>
+<p><strong>Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">applySpell</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="n">Enemy</span><span class="p">):</span>
+    <span class="n">Player</span><span class="o">.</span><span class="n">HP</span> <span class="o">+=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">spellRequirement</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="n">Spell</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Player</span><span class="o">.</span><span class="n">HP</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="n">newSpell</span> <span class="o">=</span> <span class="n">Spell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">applySpell</span><span class="p">,</span> <span class="p">[</span><span class="n">spellRequirement</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Creating job and class specific actions</strong></p>
+<p>In practice most actions are not a Spell and are a class derived from it. For example, the class <em>BLMSpell</em> represents an action that can be performed by a blackmage and <em>BLMSpell</em> is a subclass
+of Spell. There is one such class for each job and for each role. To import all actions that a player can perform, use the following import structure :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.__ROLE__.__JOB__.__JOB___Spell</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Caster.Blackmage.BlackMage_Spell</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Import all BlackMage actions</span>
+<span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Caster.Caster_Spell</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Import all actions that any caster can perform.</span>
+
+<span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Healer.Healer_Spell</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Import all actions that any healer can perform</span>
+<span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Healer.Scholar.Scholar_Spell</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Import all Scholar actions.</span>
+</pre></div>
+</div>
+<p>Every subclass of Spell has their own constructor that might differ in need. Refer to the different files on the github repository for more information.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spellClass.html" class="btn btn-neutral float-left" title="Spell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spellCast.html" class="btn btn-neutral float-right" title="Spell.Cast()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

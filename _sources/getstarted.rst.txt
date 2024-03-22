@@ -1,11 +1,3 @@
-.. Here is my ASCII art kirbo fan art
-    
-      _________
-     /       . \
-    (   .       )
-     \     O   /
-      \/     \/
-
 Introduction
 ============
 
@@ -13,18 +5,9 @@ Firstly, in order to install this library execute the following function in your
 
 .. code-block:: text
 
-    pip install ffxiv-combat-simulator@git+https://github.com/IAmPythagoras/FFXIV-Combat-Simulator.git@main
+    pip install ffxivcalc
 
-In this first page, it will be explained to you how to simulate your first fight
-using the **ffxivcalc** library. 
-
-.. note::
-
-    Once you are familiar with the library, you can use  `this layout <https://github.com/IAmPythagoras/FFXIV-Combat-Simulator/blob/main/ffxivcalc_layout.py>`_ in order to make it easier to write your own simulations.
-
-
-The **ffxivcalc** library functions by having multiple class interacting with eachother. Each classes serves a purpose in the simulator and you must become
-slightly familiar with some of them in order to run your own simulations.
+In this first page, it will be explained to you how to simulate your first fight using the **ffxivcalc** library. 
 
 Fight Class
 -----------
@@ -97,7 +80,7 @@ In order to add a player to the *Fight* instance we need to create a *Player* in
 
     ActionSet = [] # List containing actions to be performed. Can be left empty
     EffectList = [] # List of all effect on the player at start. Can be left empty
-    Stat = {"MainStat": 2945, "WD":126, "Det" : 1451, "Ten" : 400, "SS": 840, "Crit" : 2386, "DH" : 1307} # Stats for BlackMage
+    Stat = {"MainStat": 2945, "WD":126, "Det" : 1451, "Ten" : 400, "SS": 840, "SkS" : 400, "Crit" : 2386, "DH" : 1307} # Stats for BlackMage
 
 
     newBlackMage = Player(ActionSet, EffectList, Stat, JobEnum.BlackMage) # Creating player instance
@@ -138,7 +121,7 @@ Actions that can be done by any players. The two mainly used *Base_Spell* action
 Role Spell
 ^^^^^^^^^^
 
-Actions that can be done by players of the same *Role*. *Roles* are *Casters*, *PhysicalRanged*, *Melee*, *Healer*, *Tank*.
+Actions that can be done by players of the same *Role*. The different roles are *Casters*, *PhysicalRanged*, *Melee*, *Healer*, *Tank*.
 Examples of *Role* actions are *Swiftcast*, *ArmLength*, *Esuna*, *Peloton*, *Rampart*, etc.
 
 Job_Spell
@@ -227,13 +210,13 @@ After running all of the above code, you should see this text and have at least 
     The Potency Per Second on the Enemy is: 277.2
     The Enemy's total DPS is 14100.31
 
-.. image:: getstartedgraph.webp
+.. image:: getstartedgraph.png
   :width: 800
   :alt: DPS and PPS graphs outputed by the simulator
 
 You have now ran your first simulation using **ffxivcalc**! This is all the basis you need to know
 in order to simulate fights. The rest of this tutorial will be some more code examples, after which more complex
-customization will be discussed, but it won't be anything mandatory in order to simulate fights.
+customization will be discussed.
 
 More code examples
 ------------------
@@ -292,31 +275,30 @@ Output :
 
 .. code-block:: text
 
-    The Fight finishes at: 17.01
-    The Total Potency done by player BlackMage was : 6660
-    This same player had a Potency Per Second of: 391.53
-    This same Player had an average of 740.0 Potency/Spell
-    This same player did 9 GCD.
-    The DPS is : 18930.1
-    =======================================================
-    The Enemy has received a total potency of: 6660
-    The Potency Per Second on the Enemy is: 391.53
-    The Enemy's total DPS is 18930.1
+    The Fight finishes at: 16.94
+    ========================
+    Results for BlackMage ID - 1 :
+    DPS : 20820.84 PPS : 430.93 TP : 7300 GCD : 9 TD : 352705
+
+    =================
+    Total DPS : 20820.84    Total PPS : 430.93      Total Potency : 7300
 
 If instead we had not changed *RequirementOn* to False, the simulator would have outputed this:
 
 .. code-block:: text
 
-    The first failed fatal requirement was : PolyglotRequirement
-    The Total Potency done by player BlackMage was : 260
-    This same player had a Potency Per Second of: 260.0
-    This same Player had an average of 260.0 Potency/Spell
-    This same player did 1 GCD.
-    The DPS is : 10457.0
-    =======================================================
-    The Enemy has received a total potency of: 260
-    The Potency Per Second on the Enemy is: 260.0
-    The Enemy's total DPS is 10457.0
+    The simulation ran into a problem. You can disable requirements by setting 'Fight.RequirementOn' to 'False'.
+    =================
+    List of failed fatal requirements :
+    Failed Fatal Requirement : PolyglotRequirement Timestamp : 0
+
+    The Fight finishes at: 0
+    ========================
+    Results for BlackMage ID - 1 :
+    DPS : 54316.0 PPS : 1140.0 TP : 1140 GCD : 2 TD : 54316
+
+    =================
+    Total DPS : 54316.0     Total PPS : 1140.0      Total Potency : 1140
 
 As you can see the fight finishes early and it tells the user the name of the first fatal failed requirement. In this case it is *PolyglotRequirement*.
 
@@ -349,8 +331,8 @@ Code simulating a dancer and a ninja doing their opener :
     from ffxivcalc.Jobs.Player import Player # Importing player class
     from ffxivcalc.Jobs.PlayerEnum import JobEnum # Importing JobEnum
 
-    NINStat = {"MainStat": 2921, "WD":126, "Det" : 1669, "Ten" : 400, "SS": 400, "Crit" : 2399, "DH" : 1511} # Stats for Ninja
-    DNCStat = {"MainStat": 2949, "WD":126, "Det" : 1721, "Ten" : 400, "SS": 536, "Crit" : 2387, "DH" : 1340} # Stats for Dancer
+    NINStat = {"MainStat": 2921, "WD":126, "Det" : 1669, "Ten" : 400, "SS": 400, "SkS" : 400, "Crit" : 2399, "DH" : 1511} # Stats for Ninja
+    DNCStat = {"MainStat": 2949, "WD":126, "Det" : 1721, "Ten" : 400, "SS": 400, "SkS" : 536, "Crit" : 2387, "DH" : 1340} # Stats for Dancer
 
     NinjaPlayer = Player([], [], NINStat, JobEnum.Ninja) # Creating Ninja player
     DancerPlayer = Player([], [], DNCStat, JobEnum.Dancer) # Creating Dancer player
@@ -397,29 +379,19 @@ It outputs this :
 
 .. code-block:: text
 
-    The Fight finishes at: 26.05
-    The Total Potency done by player Dancer was : 5780
-    This same player had a Potency Per Second of: 221.88
-    This same Player had an average of 231.2 Potency/Spell
-    This same player did 17 GCD.
-    The DPS is : 12043.8
-    =======================================================
-    ==================
-    Expected Vs Used Proc for Dancer
-    Expected SilkenSymettry : 0 Used SilkenSymettry : 0
-    Expected SilkenFlow : 0 Used SilkenFlow : 0
-    Expected FourfoldFeather : 0.5 Used FourfoldFeather : 1
-    Expected ThreefoldFan : 1.5 Used ThreefoldFan : 2
-    ==================
-    The Total Potency done by player Ninja was : 11590
-    This same player had a Potency Per Second of: 444.91
-    This same Player had an average of 297.18 Potency/Spell
-    This same player did 28 GCD.
-    The DPS is : 20139.19
-    =======================================================
-    The Enemy has received a total potency of: 17370
-    The Potency Per Second on the Enemy is: 666.79
-    The Enemy's total DPS is 32182.99
+    The Fight finishes at: 26.71
+    ========================
+    Results for Dancer ID - 1 :
+    DPS : 11120.33 PPS : 209.66 TP : 5600 GCD : 17 TD : 297024
+    Procs/Gauge result (Used/Expected) :
+    Silken Symettry : 0/0 Silken Flow : 0/0
+    Fourfold Feather : 1/0.5 Threefold Fan : 2/1.5
+    =================
+    Results for Ninja ID - 2 :
+    DPS : 19494.05 PPS : 433.92 TP : 11590 GCD : 28 TD : 520686
+
+    =================
+    Total DPS : 30614.38    Total PPS : 643.58      Total Potency : 17190
 
 .. image:: dancer_nin_opener.png
   :width: 800
@@ -452,8 +424,8 @@ Simulating two Ninjas doing the exact same opener
     from ffxivcalc.Jobs.Player import Player # Importing player class
     from ffxivcalc.Jobs.PlayerEnum import JobEnum # Importing JobEnum
 
-    NINStat = {"MainStat": 2921, "WD":126, "Det" : 1669, "Ten" : 400, "SS": 400, "Crit" : 2399, "DH" : 1511} # Stats for Ninja
-    DNCStat = {"MainStat": 2949, "WD":126, "Det" : 1721, "Ten" : 400, "SS": 536, "Crit" : 2387, "DH" : 1340} # Stats for Dancer
+    NINStat = {"MainStat": 2921, "WD":126, "Det" : 1669, "Ten" : 400, "SS": 400, "SkS": 536, "Crit" : 2399, "DH" : 1511} # Stats for Ninja
+    DNCStat = {"MainStat": 2949, "WD":126, "Det" : 1721, "Ten" : 400, "SkS": 536, "SS": 400, "Crit" : 2387, "DH" : 1340} # Stats for Dancer
 
     NinjaPlayer1 = Player([], [], NINStat, JobEnum.Ninja) # Creating Ninja player
     NinjaPlayer2 = Player([], [], NINStat, JobEnum.Ninja) # Creating Ninja player
@@ -496,27 +468,22 @@ It ouputs :
 
 .. code-block:: text
 
-    The Fight finishes at: 25.27
-    The Total Potency done by player Ninja was : 11590
-    This same player had a Potency Per Second of: 458.65
-    This same Player had an average of 305.0 Potency/Spell
-    This same player did 28 GCD.
-    The DPS is : 17285.99
-    =======================================================
-    The Total Potency done by player Ninja was : 11590
-    This same player had a Potency Per Second of: 458.65
-    This same Player had an average of 305.0 Potency/Spell
-    This same player did 28 GCD.
-    The DPS is : 17295.88
-    =======================================================
-    The Enemy has received a total potency of: 23180
-    The Potency Per Second on the Enemy is: 917.29
-    The Enemy's total DPS is 34581.88
+    The Fight finishes at: 25.09
+    ========================
+    Results for Ninja ID - 1 :
+    DPS : 17381.19 PPS : 458.35 TP : 11500 GCD : 28 TD : 436094
+
+    =================
+    Results for Ninja ID - 2 :
+    DPS : 17391.07 PPS : 458.35 TP : 11500 GCD : 28 TD : 436342
+
+    =================
+    Total DPS : 34772.26    Total PPS : 916.7       Total Potency : 23000
 
 As you can see, both ninjas do not have the exact same DPS. The reason for that lies within how the simulator works. 
-In fact, the simulator process each player in order. Meaning that the DPS gain for the second ninja comes from the fact that
+In fact, the simulator process each player in order. Meaning that the DPS gain for the second ninja is because
 the first ninja casts and applies mug before the 2nd one does. Giving the second ninja a slight DPS bonus over the first one since
-the second mug's damage is slightly buffed by the first one.
+the second mug's damage is slightly buffed by the first one. This is an edge case that will always be present since it would be quite hard to fix.
 
 You can in fact see that they both have the same total potency, but that only their DPS differs.
 
@@ -541,22 +508,22 @@ Here is the code :
     from ffxivcalc.Jobs.Player import Player # Importing player class
     from ffxivcalc.Jobs.PlayerEnum import JobEnum # Importing JobEnum
     # Caster
-    RDMStat = {"MainStat": 2947, "WD":126, "Det" : 1548, "Ten" : 400, "SS": 495, "Crit" : 2397, "DH" : 1544} # Stats for RedMage
+    RDMStat = {"MainStat": 2947, "WD":126, "Det" : 1548, "Ten" : 400, "SS": 495,"SkS" : 400, "Crit" : 2397, "DH" : 1544} # Stats for RedMage
 
     # Healer
-    SCHStat = {"MainStat": 2931, "WD":126, "Det" : 1750, "Ten" : 400, "SS": 1473, "Crit" : 2351, "DH" : 436} # Stats for Scholar
-    WHMStat = {"MainStat": 2945, "WD":126, "Det" : 1792, "Ten" : 400, "SS": 839, "Crit" : 2313, "DH" : 904} # Stats for WhiteMage
+    SCHStat = {"MainStat": 2931, "WD":126, "Det" : 1750, "Ten" : 400, "SS": 1473, "SkS" : 400, "Crit" : 2351, "DH" : 436} # Stats for Scholar
+    WHMStat = {"MainStat": 2945, "WD":126, "Det" : 1792, "Ten" : 400, "SS": 839, "SkS" : 400, "Crit" : 2313, "DH" : 904} # Stats for WhiteMage
 
     # Physical Ranged
-    DNCStat = {"MainStat": 2949, "WD":126, "Det" : 1721, "Ten" : 400, "SS": 536, "Crit" : 2387, "DH" : 1340} # Stats for Dancer
+    DNCStat = {"MainStat": 2949, "WD":126, "Det" : 1721, "Ten" : 400, "SkS": 536, "SS" : 400,"Crit" : 2387, "DH" : 1340} # Stats for Dancer
 
     # Melee
-    NINStat = {"MainStat": 2921, "WD":126, "Det" : 1669, "Ten" : 400, "SS": 400, "Crit" : 2399, "DH" : 1511} # Stats for Ninja
-    DRGStat = {"MainStat": 2949, "WD":126, "Det" : 1545, "Ten" : 400, "SS": 400, "Crit" : 2462, "DH" : 1577} # Stats for Dragoon
+    NINStat = {"MainStat": 2921, "WD":126, "Det" : 1669, "Ten" : 400, "SS": 400,"SkS" : 400, "Crit" : 2399, "DH" : 1511} # Stats for Ninja
+    DRGStat = {"MainStat": 2949, "WD":126, "Det" : 1545, "Ten" : 400, "SS": 400,"SkS" : 400, "Crit" : 2462, "DH" : 1577} # Stats for Dragoon
 
     # Tank
-    DRKStat = {"MainStat": 2910, "WD":126, "Det" : 1844, "Ten" : 751, "SS": 400, "Crit" : 2377, "DH" : 1012} # Stats for DarkKnight
-    GNBStat = {"MainStat": 2891, "WD":126, "Det" : 1883, "Ten" : 631, "SS": 650, "Crit" : 2352, "DH" : 868} # Stats for Gunbreaker
+    DRKStat = {"MainStat": 2910, "WD":126, "Det" : 1844, "Ten" : 751, "SS": 400,"SkS" : 400, "Crit" : 2377, "DH" : 1012} # Stats for DarkKnight
+    GNBStat = {"MainStat": 2891, "WD":126, "Det" : 1883, "Ten" : 631, "SkS": 650,"SS" : 400, "Crit" : 2352, "DH" : 868} # Stats for Gunbreaker
 
     # Caster player object
     RDMPlayer = Player([], [], RDMStat, JobEnum.RedMage)
@@ -633,114 +600,57 @@ Outputs :
 
 .. code-block:: text
 
-    The Fight finishes at: 34.36
-    The Total Potency done by player Gunbreaker was : 8550
-    This same player had a Potency Per Second of: 248.84
-    This same Player had an average of 388.64 Potency/Spell
-    This same player did 11 GCD.
-    The DPS is : 9119.76
-    =======================================================
-    The Total Potency done by player DarkKnight was : 11330
-    This same player had a Potency Per Second of: 329.74
-    This same Player had an average of 453.2 Potency/Spell
-    This same player did 8 GCD.
-    The DPS is : 11804.86
-    =======================================================
-    The Total Potency done by player Scholar was : 3955
-    This same player had a Potency Per Second of: 115.1
-    This same Player had an average of 188.33 Potency/Spell
-    This same player did 10 GCD.
-    The DPS is : 5678.96
-    =======================================================
-    The Total Potency done by player WhiteMage was : 5710
-    This same player had a Potency Per Second of: 166.18
-    This same Player had an average of 300.53 Potency/Spell
-    This same player did 16 GCD.
-    The DPS is : 8117.2
-    =======================================================
-    The Total Potency done by player RedMage was : 8660
-    This same player had a Potency Per Second of: 252.04
-    This same Player had an average of 309.29 Potency/Spell
-    This same player did 16 GCD.
-    The DPS is : 13150.2
-    =======================================================
-    The Total Potency done by player Dancer was : 6110
-    This same player had a Potency Per Second of: 177.82
-    This same Player had an average of 244.4 Potency/Spell
-    This same player did 17 GCD.
-    The DPS is : 11001.37
-    =======================================================
-    ==================
-    Expected Vs Used Proc for Dancer
-    Expected SilkenSymettry : 0 Used SilkenSymettry : 0
-    Expected SilkenFlow : 0 Used SilkenFlow : 0
-    Expected FourfoldFeather : 0.5 Used FourfoldFeather : 1
-    Expected ThreefoldFan : 1.5 Used ThreefoldFan : 2
-    ==================
-    The Total Potency done by player Dragoon was : 8155
-    This same player had a Potency Per Second of: 237.34
-    This same Player had an average of 302.04 Potency/Spell
-    This same player did 14 GCD.
-    The DPS is : 12573.81
-    =======================================================
-    The Total Potency done by player Ninja was : 11920
-    This same player had a Potency Per Second of: 346.92
-    This same Player had an average of 305.64 Potency/Spell
-    This same player did 28 GCD.
-    The DPS is : 18548.84
-    =======================================================
-    The Enemy has received a total potency of: 64390
-    The Potency Per Second on the Enemy is: 1873.98
-    The Enemy's total DPS is 89994.99
+    The Fight finishes at: 34.97
+    ========================
+    Results for Gunbreaker ID - 1 :
+    DPS : 8940.86 PPS : 240.21 TP : 8400 GCD : 11 TD : 312662
+
+    =================
+    Results for DarkKnight ID - 2 :
+    DPS : 10964.91 PPS : 317.13 TP : 11090 GCD : 8 TD : 383443
+
+    =================
+    Results for Scholar ID - 3 :
+    DPS : 5450.7 PPS : 113.1 TP : 3955 GCD : 10 TD : 190611
+
+    =================
+    Results for WhiteMage ID - 4 :
+    DPS : 7905.06 PPS : 163.28 TP : 5710 GCD : 16 TD : 276440
+
+    =================
+    Results for RedMage ID - 5 :
+    DPS : 12949.93 PPS : 249.64 TP : 8730 GCD : 16 TD : 452859
+    Procs/Gauge result (Used/Expected) :
+    Verfire : 1/3.5 Verstone : 1/2.0
+    =================
+    Results for Dancer ID - 6 :
+    DPS : 10018.44 PPS : 167.86 TP : 5870 GCD : 17 TD : 350345
+    Procs/Gauge result (Used/Expected) :
+    Silken Symettry : 0/0 Silken Flow : 0/0
+    Fourfold Feather : 1/0.5 Threefold Fan : 2/1.5
+    =================
+    Results for Dragoon ID - 7 :
+    DPS : 11957.94 PPS : 226.34 TP : 7915 GCD : 14 TD : 418169
+
+    =================
+    Results for Ninja ID - 8 :
+    DPS : 17974.81 PPS : 339.15 TP : 11860 GCD : 28 TD : 628579
+
+    =================
+    Total DPS : 86162.65    Total PPS : 1816.7      Total Potency : 63530
 
 
 .. image:: full_team_opener.png
   :width: 800
   :alt: DPS and PPS graphs outputed by the simulator
 
-
-
 .. note::
 
     The simulator automatically computes the team composition bonus depending on what role is present 
     in the fight.
 
-
 In this case the openers were set up to simulate a 20 seconds countdown before starting to do damage.
 
-Importing gear from etro.gg
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-One last thing before the end, throughout this tutorial the *Stat* dictionnary have been manually done. However, you can use
-the class function *Set_etro_gearset(url : str)* on any *Player* instance in order to automatically upload the stats from a gear set
-from etro.gg .
-
-Here is an example :
-
-.. code-block:: python
-
-    from ffxivcalc.Jobs.Melee.Ninja.Ninja_Spell import * # Importing ninja actions
-    from ffxivcalc.Jobs.Melee.Melee_Spell import * # Importing melee actions
-
-    NINPlayer = Player([], [], {}, JobEnum.Ninja) # Initiating Ninja player with an empty dictionnary
-
-    NINPlayer.ActionSet = [WaitAbility(10), Jin, Chi, Ten, Huton, Hide, Ten, Chi, Jin, WaitAbility(5), Suiton, Kassatsu, SpinningEdge, GustSlash, Mug, Bunshin, PhantomKamaitachi, TrickAttack, AeolianEdge, DreamWithinADream, Ten, Jin, HyoshoRanryu, Ten, Chi, Raiton, TenChiJin, Ten2, Chi2, Jin2, Meisui, FleetingRaiju, Bhavacakra, FleetingRaiju, Bhavacakra, Ten, Chi, Raiton, FleetingRaiju ]
-
-    NINPlayer.Set_etro_gearset("https://etro.gg/gearset/73f9f3af-2fa1-4871-85a3-a0f6adbb5e28") # Set the Ninja's stat to be the etro gear set
-
-    newFight.AddPlayer([NINPlayer]) # Adding players to the fight
-
-    TimeUnit = 0.01 # Unit of time per frame
-    TimeLimit = 500 # Max running time of the simulation (time IN the simulation)
-
-    # Simulation parameters
-    newFight.RequirementOn = True # Will check for actions requirement
-    newFight.IgnoreMana = False # Will check for mana
-    vocal = True # Want to output data in text
-
-    newFight.SimulateFight(TimeUnit, TimeLimit, vocal) # Simulating the fight
-
-As you can see, one simply needs to use the *Set_etro_gearset* function on the player instance with as input the url of the gear set in question and it will be automatically
-applied to the player.
+The generated graphics (either DPS distribution or DPS Vs. Time) will be saved in the same directory where the script was executed.
 
 The rest of the documentation will focus on stuff that is not mandatory. But feel free to stop by anyway!

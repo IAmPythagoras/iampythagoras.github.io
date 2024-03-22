@@ -1,34 +1,37 @@
-.. hello you found me.
-.. Always remember child.
-.. EVERY FIGHT IS LEYLINES RELATIVE
+.. ffxiv-combat-simulator documentation master file, created by
+   sphinx-quickstart on Wed Nov  2 16:54:39 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-Welcome to ffxiv-combat-simulator's documentation!
+Welcome to ffxivcalc's documentation!
 ==================================================
 
-**FFXIV-combat-simulator** or **ffxivcalc** for short, is a library/API that lets anyone simulate combat from the game 
-*Final Fantasy XIV Online*. It can be used to simulate any sort of rotation with any sort of team composition. It even allows
-for completely customized actions to be performed by a player. This tool will let people (and you) experiment and optimize rotations and even entire raids in
-order to get lower kill times and higher DPS. This tool can do much more, and you can find all about it here. 
+**ffxivcalc** is a python library that makes it possible to simulate combat from *Final Fantasy XIV Online*. 
+It can be used to simulate any sort of rotation with any sort of team composition. It also allows for completely customized actions to be performed.
+This tool lets people experiment and optimize rotations and even entire raids in order to get lower kill times and higher DPS. 
 
-If you are not very familiar with code but still want to simulate simply read the *User interface* part.
+As of version 0.8.911, this tool also has a fully working gear management functions as well as a **Rotation BiS Solver (BETA)** that is still in development.
 
-Feel free to join the discord for any questions : 
-
-.. image:: https://img.shields.io/discord/970724799464738977?color=7289da&label=Discord&logo=discord
-  :width: 200
-  :alt: Spell_class_diagram
+The first part of this documentation will focus on practical examples to get you started and the second part will simply show all different functions available with a short description of their
+usage and requirements.
 
 
 .. note::
    
-   This project AND the documentation is still under development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.
+   This project is still in development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.
 
 .. toctree::
    :caption: Contents:
+   :maxdepth: 3
 
-   userinterface
+
    getstarted
-   customize_spell
-   customize_fight
-   API
+   documentation/FFLog/importFromFFLog
+   documentation/Fight/fight
+   documentation/Enemy/enemy
+   documentation/Jobs/jobs
+   documentation/GearSolver/gearSolverModule
+
+
+
 

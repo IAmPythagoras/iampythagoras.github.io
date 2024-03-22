@@ -4,10 +4,9 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; ffxiv-combat-simulator 0.71.19 documentation</title>
+  <title>Introduction &mdash; ffxivcalc 0.8.925 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="https://pbs.twimg.com/media/FbQP45JaUAAheKk.jpg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -21,8 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Customize Spell object" href="customize_spell.html" />
-    <link rel="prev" title="User interface" href="userinterface.html" /> 
+    <link rel="next" title="Fight" href="documentation/Fight/fight.html" />
+    <link rel="prev" title="Welcome to ffxivcalc’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,10 +29,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> ffxiv-combat-simulator
+            <a href="index.html" class="icon icon-home"> ffxivcalc
           </a>
               <div class="version">
-                0.71.19
+                0.8.925
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -45,7 +44,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="userinterface.html">User interface</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fight-class">Fight Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#player-class">Player class</a></li>
@@ -61,14 +59,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#simulate-a-dancer-and-ninja-opener-with-the-ninja-being-the-dancer-s-dance-partner">Simulate a Dancer and Ninja opener with the Ninja being the Dancer’s dance partner.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#simulating-two-ninjas-doing-the-exact-same-opener">Simulating two Ninjas doing the exact same opener</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#simulating-a-standard-8-man-raid-doing-their-opener">Simulating a standard 8 man raid doing their opener</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#importing-gear-from-etro-gg">Importing gear from etro.gg</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="customize_spell.html">Customize Spell object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customize_fight.html">Customize Fight</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/GearSolver/gearSolverModule.html">GearSolver</a></li>
 </ul>
 
         </div>
@@ -77,7 +75,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ffxiv-combat-simulator</a>
+          <a href="index.html">ffxivcalc</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -98,17 +96,10 @@
   <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
 <p>Firstly, in order to install this library execute the following function in your command prompt:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install ffxiv-combat-simulator@git+https://github.com/IAmPythagoras/FFXIV-Combat-Simulator.git@main
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install ffxivcalc
 </pre></div>
 </div>
-<p>In this first page, it will be explained to you how to simulate your first fight
-using the <strong>ffxivcalc</strong> library.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Once you are familiar with the library, you can use  <a class="reference external" href="https://github.com/IAmPythagoras/FFXIV-Combat-Simulator/blob/main/ffxivcalc_layout.py">this layout</a> in order to make it easier to write your own simulations.</p>
-</div>
-<p>The <strong>ffxivcalc</strong> library functions by having multiple class interacting with eachother. Each classes serves a purpose in the simulator and you must become
-slightly familiar with some of them in order to run your own simulations.</p>
+<p>In this first page, it will be explained to you how to simulate your first fight using the <strong>ffxivcalc</strong> library.</p>
 <section id="fight-class">
 <h2>Fight Class<a class="headerlink" href="#fight-class" title="Permalink to this heading"></a></h2>
 <p>The <em>Fight</em> class is one of the most important in the whole library. An instance of <em>Fight</em> represents the simulator and contains
@@ -170,7 +161,7 @@ tells the simulator to generate graphs at the end.</p>
 
 <span class="n">ActionSet</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># List containing actions to be performed. Can be left empty</span>
 <span class="n">EffectList</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># List of all effect on the player at start. Can be left empty</span>
-<span class="n">Stat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2945</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1451</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">840</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2386</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1307</span><span class="p">}</span> <span class="c1"># Stats for BlackMage</span>
+<span class="n">Stat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2945</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1451</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">840</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2386</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1307</span><span class="p">}</span> <span class="c1"># Stats for BlackMage</span>
 
 
 <span class="n">newBlackMage</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">ActionSet</span><span class="p">,</span> <span class="n">EffectList</span><span class="p">,</span> <span class="n">Stat</span><span class="p">,</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">BlackMage</span><span class="p">)</span> <span class="c1"># Creating player instance</span>
@@ -210,7 +201,7 @@ objects.</p>
 </section>
 <section id="role-spell">
 <h3>Role Spell<a class="headerlink" href="#role-spell" title="Permalink to this heading"></a></h3>
-<p>Actions that can be done by players of the same <em>Role</em>. <em>Roles</em> are <em>Casters</em>, <em>PhysicalRanged</em>, <em>Melee</em>, <em>Healer</em>, <em>Tank</em>.
+<p>Actions that can be done by players of the same <em>Role</em>. The different roles are <em>Casters</em>, <em>PhysicalRanged</em>, <em>Melee</em>, <em>Healer</em>, <em>Tank</em>.
 Examples of <em>Role</em> actions are <em>Swiftcast</em>, <em>ArmLength</em>, <em>Esuna</em>, <em>Peloton</em>, <em>Rampart</em>, etc.</p>
 </section>
 <section id="job-spell">
@@ -288,10 +279,10 @@ The Potency Per Second on the Enemy is: 277.2
 The Enemy&#39;s total DPS is 14100.31
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/getstartedgraph.webp"><img alt="DPS and PPS graphs outputed by the simulator" src="_images/getstartedgraph.webp" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/getstartedgraph.png"><img alt="DPS and PPS graphs outputed by the simulator" src="_images/getstartedgraph.png" style="width: 800px;" /></a>
 <p>You have now ran your first simulation using <strong>ffxivcalc</strong>! This is all the basis you need to know
 in order to simulate fights. The rest of this tutorial will be some more code examples, after which more complex
-customization will be discussed, but it won’t be anything mandatory in order to simulate fights.</p>
+customization will be discussed.</p>
 </section>
 <section id="more-code-examples">
 <h2>More code examples<a class="headerlink" href="#more-code-examples" title="Permalink to this heading"></a></h2>
@@ -340,29 +331,28 @@ is to let <em>RequirementOn</em> be false.</p>
 </pre></div>
 </div>
 <p>Output :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 17.01
-The Total Potency done by player BlackMage was : 6660
-This same player had a Potency Per Second of: 391.53
-This same Player had an average of 740.0 Potency/Spell
-This same player did 9 GCD.
-The DPS is : 18930.1
-=======================================================
-The Enemy has received a total potency of: 6660
-The Potency Per Second on the Enemy is: 391.53
-The Enemy&#39;s total DPS is 18930.1
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 16.94
+========================
+Results for BlackMage ID - 1 :
+DPS : 20820.84 PPS : 430.93 TP : 7300 GCD : 9 TD : 352705
+
+=================
+Total DPS : 20820.84    Total PPS : 430.93      Total Potency : 7300
 </pre></div>
 </div>
 <p>If instead we had not changed <em>RequirementOn</em> to False, the simulator would have outputed this:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The first failed fatal requirement was : PolyglotRequirement
-The Total Potency done by player BlackMage was : 260
-This same player had a Potency Per Second of: 260.0
-This same Player had an average of 260.0 Potency/Spell
-This same player did 1 GCD.
-The DPS is : 10457.0
-=======================================================
-The Enemy has received a total potency of: 260
-The Potency Per Second on the Enemy is: 260.0
-The Enemy&#39;s total DPS is 10457.0
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The simulation ran into a problem. You can disable requirements by setting &#39;Fight.RequirementOn&#39; to &#39;False&#39;.
+=================
+List of failed fatal requirements :
+Failed Fatal Requirement : PolyglotRequirement Timestamp : 0
+
+The Fight finishes at: 0
+========================
+Results for BlackMage ID - 1 :
+DPS : 54316.0 PPS : 1140.0 TP : 1140 GCD : 2 TD : 54316
+
+=================
+Total DPS : 54316.0     Total PPS : 1140.0      Total Potency : 1140
 </pre></div>
 </div>
 <p>As you can see the fight finishes early and it tells the user the name of the first fatal failed requirement. In this case it is <em>PolyglotRequirement</em>.</p>
@@ -390,8 +380,8 @@ would be the <em>ClosedPosition(target)</em> actions of Dancer that makes the ta
 <span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Player</span> <span class="kn">import</span> <span class="n">Player</span> <span class="c1"># Importing player class</span>
 <span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.PlayerEnum</span> <span class="kn">import</span> <span class="n">JobEnum</span> <span class="c1"># Importing JobEnum</span>
 
-<span class="n">NINStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2921</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1669</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2399</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1511</span><span class="p">}</span> <span class="c1"># Stats for Ninja</span>
-<span class="n">DNCStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1721</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2387</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1340</span><span class="p">}</span> <span class="c1"># Stats for Dancer</span>
+<span class="n">NINStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2921</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1669</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2399</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1511</span><span class="p">}</span> <span class="c1"># Stats for Ninja</span>
+<span class="n">DNCStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1721</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2387</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1340</span><span class="p">}</span> <span class="c1"># Stats for Dancer</span>
 
 <span class="n">NinjaPlayer</span> <span class="o">=</span> <span class="n">Player</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">NINStat</span><span class="p">,</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">Ninja</span><span class="p">)</span> <span class="c1"># Creating Ninja player</span>
 <span class="n">DancerPlayer</span> <span class="o">=</span> <span class="n">Player</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">DNCStat</span><span class="p">,</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">Dancer</span><span class="p">)</span> <span class="c1"># Creating Dancer player</span>
@@ -436,29 +426,19 @@ would be the <em>ClosedPosition(target)</em> actions of Dancer that makes the ta
 the action know that the dancer is targetting the ninja when casting closed position.</p>
 </div>
 <p>It outputs this :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 26.05
-The Total Potency done by player Dancer was : 5780
-This same player had a Potency Per Second of: 221.88
-This same Player had an average of 231.2 Potency/Spell
-This same player did 17 GCD.
-The DPS is : 12043.8
-=======================================================
-==================
-Expected Vs Used Proc for Dancer
-Expected SilkenSymettry : 0 Used SilkenSymettry : 0
-Expected SilkenFlow : 0 Used SilkenFlow : 0
-Expected FourfoldFeather : 0.5 Used FourfoldFeather : 1
-Expected ThreefoldFan : 1.5 Used ThreefoldFan : 2
-==================
-The Total Potency done by player Ninja was : 11590
-This same player had a Potency Per Second of: 444.91
-This same Player had an average of 297.18 Potency/Spell
-This same player did 28 GCD.
-The DPS is : 20139.19
-=======================================================
-The Enemy has received a total potency of: 17370
-The Potency Per Second on the Enemy is: 666.79
-The Enemy&#39;s total DPS is 32182.99
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 26.71
+========================
+Results for Dancer ID - 1 :
+DPS : 11120.33 PPS : 209.66 TP : 5600 GCD : 17 TD : 297024
+Procs/Gauge result (Used/Expected) :
+Silken Symettry : 0/0 Silken Flow : 0/0
+Fourfold Feather : 1/0.5 Threefold Fan : 2/1.5
+=================
+Results for Ninja ID - 2 :
+DPS : 19494.05 PPS : 433.92 TP : 11590 GCD : 28 TD : 520686
+
+=================
+Total DPS : 30614.38    Total PPS : 643.58      Total Potency : 17190
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/dancer_nin_opener.png"><img alt="DPS and PPS graphs outputed by the simulator" src="_images/dancer_nin_opener.png" style="width: 800px;" /></a>
@@ -486,8 +466,8 @@ if all players are done with their action set. Because of that, you have to make
 <span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Player</span> <span class="kn">import</span> <span class="n">Player</span> <span class="c1"># Importing player class</span>
 <span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.PlayerEnum</span> <span class="kn">import</span> <span class="n">JobEnum</span> <span class="c1"># Importing JobEnum</span>
 
-<span class="n">NINStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2921</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1669</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2399</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1511</span><span class="p">}</span> <span class="c1"># Stats for Ninja</span>
-<span class="n">DNCStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1721</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2387</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1340</span><span class="p">}</span> <span class="c1"># Stats for Dancer</span>
+<span class="n">NINStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2921</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1669</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span><span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2399</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1511</span><span class="p">}</span> <span class="c1"># Stats for Ninja</span>
+<span class="n">DNCStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1721</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span><span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2387</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1340</span><span class="p">}</span> <span class="c1"># Stats for Dancer</span>
 
 <span class="n">NinjaPlayer1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">NINStat</span><span class="p">,</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">Ninja</span><span class="p">)</span> <span class="c1"># Creating Ninja player</span>
 <span class="n">NinjaPlayer2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">NINStat</span><span class="p">,</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">Ninja</span><span class="p">)</span> <span class="c1"># Creating Ninja player</span>
@@ -528,28 +508,23 @@ if all players are done with their action set. Because of that, you have to make
 when creating the player object.</p>
 </div>
 <p>It ouputs :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 25.27
-The Total Potency done by player Ninja was : 11590
-This same player had a Potency Per Second of: 458.65
-This same Player had an average of 305.0 Potency/Spell
-This same player did 28 GCD.
-The DPS is : 17285.99
-=======================================================
-The Total Potency done by player Ninja was : 11590
-This same player had a Potency Per Second of: 458.65
-This same Player had an average of 305.0 Potency/Spell
-This same player did 28 GCD.
-The DPS is : 17295.88
-=======================================================
-The Enemy has received a total potency of: 23180
-The Potency Per Second on the Enemy is: 917.29
-The Enemy&#39;s total DPS is 34581.88
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 25.09
+========================
+Results for Ninja ID - 1 :
+DPS : 17381.19 PPS : 458.35 TP : 11500 GCD : 28 TD : 436094
+
+=================
+Results for Ninja ID - 2 :
+DPS : 17391.07 PPS : 458.35 TP : 11500 GCD : 28 TD : 436342
+
+=================
+Total DPS : 34772.26    Total PPS : 916.7       Total Potency : 23000
 </pre></div>
 </div>
 <p>As you can see, both ninjas do not have the exact same DPS. The reason for that lies within how the simulator works.
-In fact, the simulator process each player in order. Meaning that the DPS gain for the second ninja comes from the fact that
+In fact, the simulator process each player in order. Meaning that the DPS gain for the second ninja is because
 the first ninja casts and applies mug before the 2nd one does. Giving the second ninja a slight DPS bonus over the first one since
-the second mug’s damage is slightly buffed by the first one.</p>
+the second mug’s damage is slightly buffed by the first one. This is an edge case that will always be present since it would be quite hard to fix.</p>
 <p>You can in fact see that they both have the same total potency, but that only their DPS differs.</p>
 </section>
 <section id="simulating-a-standard-8-man-raid-doing-their-opener">
@@ -568,22 +543,22 @@ DRK - GNB - RDM - NIN - DRG - DNC - SCH - WHM and they will all be doing their r
 <span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Player</span> <span class="kn">import</span> <span class="n">Player</span> <span class="c1"># Importing player class</span>
 <span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.PlayerEnum</span> <span class="kn">import</span> <span class="n">JobEnum</span> <span class="c1"># Importing JobEnum</span>
 <span class="c1"># Caster</span>
-<span class="n">RDMStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2947</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1548</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">495</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2397</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1544</span><span class="p">}</span> <span class="c1"># Stats for RedMage</span>
+<span class="n">RDMStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2947</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1548</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">495</span><span class="p">,</span><span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2397</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1544</span><span class="p">}</span> <span class="c1"># Stats for RedMage</span>
 
 <span class="c1"># Healer</span>
-<span class="n">SCHStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2931</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1750</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">1473</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2351</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">436</span><span class="p">}</span> <span class="c1"># Stats for Scholar</span>
-<span class="n">WHMStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2945</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1792</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">839</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2313</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">904</span><span class="p">}</span> <span class="c1"># Stats for WhiteMage</span>
+<span class="n">SCHStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2931</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1750</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">1473</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2351</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">436</span><span class="p">}</span> <span class="c1"># Stats for Scholar</span>
+<span class="n">WHMStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2945</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1792</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">839</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2313</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">904</span><span class="p">}</span> <span class="c1"># Stats for WhiteMage</span>
 
 <span class="c1"># Physical Ranged</span>
-<span class="n">DNCStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1721</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2387</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1340</span><span class="p">}</span> <span class="c1"># Stats for Dancer</span>
+<span class="n">DNCStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1721</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span><span class="p">:</span> <span class="mi">536</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span><span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2387</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1340</span><span class="p">}</span> <span class="c1"># Stats for Dancer</span>
 
 <span class="c1"># Melee</span>
-<span class="n">NINStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2921</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1669</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2399</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1511</span><span class="p">}</span> <span class="c1"># Stats for Ninja</span>
-<span class="n">DRGStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1545</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2462</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1577</span><span class="p">}</span> <span class="c1"># Stats for Dragoon</span>
+<span class="n">NINStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2921</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1669</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span><span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2399</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1511</span><span class="p">}</span> <span class="c1"># Stats for Ninja</span>
+<span class="n">DRGStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2949</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1545</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span><span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2462</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1577</span><span class="p">}</span> <span class="c1"># Stats for Dragoon</span>
 
 <span class="c1"># Tank</span>
-<span class="n">DRKStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2910</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1844</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">751</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2377</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1012</span><span class="p">}</span> <span class="c1"># Stats for DarkKnight</span>
-<span class="n">GNBStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2891</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1883</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">631</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2352</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">868</span><span class="p">}</span> <span class="c1"># Stats for Gunbreaker</span>
+<span class="n">DRKStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2910</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1844</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">751</span><span class="p">,</span> <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span><span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2377</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">1012</span><span class="p">}</span> <span class="c1"># Stats for DarkKnight</span>
+<span class="n">GNBStat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MainStat&quot;</span><span class="p">:</span> <span class="mi">2891</span><span class="p">,</span> <span class="s2">&quot;WD&quot;</span><span class="p">:</span><span class="mi">126</span><span class="p">,</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="mi">1883</span><span class="p">,</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="mi">631</span><span class="p">,</span> <span class="s2">&quot;SkS&quot;</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span><span class="s2">&quot;SS&quot;</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="mi">2352</span><span class="p">,</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="mi">868</span><span class="p">}</span> <span class="c1"># Stats for Gunbreaker</span>
 
 <span class="c1"># Caster player object</span>
 <span class="n">RDMPlayer</span> <span class="o">=</span> <span class="n">Player</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">RDMStat</span><span class="p">,</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">RedMage</span><span class="p">)</span>
@@ -658,65 +633,44 @@ DRK - GNB - RDM - NIN - DRG - DNC - SCH - WHM and they will all be doing their r
 </pre></div>
 </div>
 <p>Outputs :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 34.36
-The Total Potency done by player Gunbreaker was : 8550
-This same player had a Potency Per Second of: 248.84
-This same Player had an average of 388.64 Potency/Spell
-This same player did 11 GCD.
-The DPS is : 9119.76
-=======================================================
-The Total Potency done by player DarkKnight was : 11330
-This same player had a Potency Per Second of: 329.74
-This same Player had an average of 453.2 Potency/Spell
-This same player did 8 GCD.
-The DPS is : 11804.86
-=======================================================
-The Total Potency done by player Scholar was : 3955
-This same player had a Potency Per Second of: 115.1
-This same Player had an average of 188.33 Potency/Spell
-This same player did 10 GCD.
-The DPS is : 5678.96
-=======================================================
-The Total Potency done by player WhiteMage was : 5710
-This same player had a Potency Per Second of: 166.18
-This same Player had an average of 300.53 Potency/Spell
-This same player did 16 GCD.
-The DPS is : 8117.2
-=======================================================
-The Total Potency done by player RedMage was : 8660
-This same player had a Potency Per Second of: 252.04
-This same Player had an average of 309.29 Potency/Spell
-This same player did 16 GCD.
-The DPS is : 13150.2
-=======================================================
-The Total Potency done by player Dancer was : 6110
-This same player had a Potency Per Second of: 177.82
-This same Player had an average of 244.4 Potency/Spell
-This same player did 17 GCD.
-The DPS is : 11001.37
-=======================================================
-==================
-Expected Vs Used Proc for Dancer
-Expected SilkenSymettry : 0 Used SilkenSymettry : 0
-Expected SilkenFlow : 0 Used SilkenFlow : 0
-Expected FourfoldFeather : 0.5 Used FourfoldFeather : 1
-Expected ThreefoldFan : 1.5 Used ThreefoldFan : 2
-==================
-The Total Potency done by player Dragoon was : 8155
-This same player had a Potency Per Second of: 237.34
-This same Player had an average of 302.04 Potency/Spell
-This same player did 14 GCD.
-The DPS is : 12573.81
-=======================================================
-The Total Potency done by player Ninja was : 11920
-This same player had a Potency Per Second of: 346.92
-This same Player had an average of 305.64 Potency/Spell
-This same player did 28 GCD.
-The DPS is : 18548.84
-=======================================================
-The Enemy has received a total potency of: 64390
-The Potency Per Second on the Enemy is: 1873.98
-The Enemy&#39;s total DPS is 89994.99
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The Fight finishes at: 34.97
+========================
+Results for Gunbreaker ID - 1 :
+DPS : 8940.86 PPS : 240.21 TP : 8400 GCD : 11 TD : 312662
+
+=================
+Results for DarkKnight ID - 2 :
+DPS : 10964.91 PPS : 317.13 TP : 11090 GCD : 8 TD : 383443
+
+=================
+Results for Scholar ID - 3 :
+DPS : 5450.7 PPS : 113.1 TP : 3955 GCD : 10 TD : 190611
+
+=================
+Results for WhiteMage ID - 4 :
+DPS : 7905.06 PPS : 163.28 TP : 5710 GCD : 16 TD : 276440
+
+=================
+Results for RedMage ID - 5 :
+DPS : 12949.93 PPS : 249.64 TP : 8730 GCD : 16 TD : 452859
+Procs/Gauge result (Used/Expected) :
+Verfire : 1/3.5 Verstone : 1/2.0
+=================
+Results for Dancer ID - 6 :
+DPS : 10018.44 PPS : 167.86 TP : 5870 GCD : 17 TD : 350345
+Procs/Gauge result (Used/Expected) :
+Silken Symettry : 0/0 Silken Flow : 0/0
+Fourfold Feather : 1/0.5 Threefold Fan : 2/1.5
+=================
+Results for Dragoon ID - 7 :
+DPS : 11957.94 PPS : 226.34 TP : 7915 GCD : 14 TD : 418169
+
+=================
+Results for Ninja ID - 8 :
+DPS : 17974.81 PPS : 339.15 TP : 11860 GCD : 28 TD : 628579
+
+=================
+Total DPS : 86162.65    Total PPS : 1816.7      Total Potency : 63530
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/full_team_opener.png"><img alt="DPS and PPS graphs outputed by the simulator" src="_images/full_team_opener.png" style="width: 800px;" /></a>
@@ -726,37 +680,7 @@ The Enemy&#39;s total DPS is 89994.99
 in the fight.</p>
 </div>
 <p>In this case the openers were set up to simulate a 20 seconds countdown before starting to do damage.</p>
-</section>
-<section id="importing-gear-from-etro-gg">
-<h3>Importing gear from etro.gg<a class="headerlink" href="#importing-gear-from-etro-gg" title="Permalink to this heading"></a></h3>
-<p>One last thing before the end, throughout this tutorial the <em>Stat</em> dictionnary have been manually done. However, you can use
-the class function <em>Set_etro_gearset(url : str)</em> on any <em>Player</em> instance in order to automatically upload the stats from a gear set
-from etro.gg .</p>
-<p>Here is an example :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Melee.Ninja.Ninja_Spell</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Importing ninja actions</span>
-<span class="kn">from</span> <span class="nn">ffxivcalc.Jobs.Melee.Melee_Spell</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Importing melee actions</span>
-
-<span class="n">NINPlayer</span> <span class="o">=</span> <span class="n">Player</span><span class="p">([],</span> <span class="p">[],</span> <span class="p">{},</span> <span class="n">JobEnum</span><span class="o">.</span><span class="n">Ninja</span><span class="p">)</span> <span class="c1"># Initiating Ninja player with an empty dictionnary</span>
-
-<span class="n">NINPlayer</span><span class="o">.</span><span class="n">ActionSet</span> <span class="o">=</span> <span class="p">[</span><span class="n">WaitAbility</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">Jin</span><span class="p">,</span> <span class="n">Chi</span><span class="p">,</span> <span class="n">Ten</span><span class="p">,</span> <span class="n">Huton</span><span class="p">,</span> <span class="n">Hide</span><span class="p">,</span> <span class="n">Ten</span><span class="p">,</span> <span class="n">Chi</span><span class="p">,</span> <span class="n">Jin</span><span class="p">,</span> <span class="n">WaitAbility</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">Suiton</span><span class="p">,</span> <span class="n">Kassatsu</span><span class="p">,</span> <span class="n">SpinningEdge</span><span class="p">,</span> <span class="n">GustSlash</span><span class="p">,</span> <span class="n">Mug</span><span class="p">,</span> <span class="n">Bunshin</span><span class="p">,</span> <span class="n">PhantomKamaitachi</span><span class="p">,</span> <span class="n">TrickAttack</span><span class="p">,</span> <span class="n">AeolianEdge</span><span class="p">,</span> <span class="n">DreamWithinADream</span><span class="p">,</span> <span class="n">Ten</span><span class="p">,</span> <span class="n">Jin</span><span class="p">,</span> <span class="n">HyoshoRanryu</span><span class="p">,</span> <span class="n">Ten</span><span class="p">,</span> <span class="n">Chi</span><span class="p">,</span> <span class="n">Raiton</span><span class="p">,</span> <span class="n">TenChiJin</span><span class="p">,</span> <span class="n">Ten2</span><span class="p">,</span> <span class="n">Chi2</span><span class="p">,</span> <span class="n">Jin2</span><span class="p">,</span> <span class="n">Meisui</span><span class="p">,</span> <span class="n">FleetingRaiju</span><span class="p">,</span> <span class="n">Bhavacakra</span><span class="p">,</span> <span class="n">FleetingRaiju</span><span class="p">,</span> <span class="n">Bhavacakra</span><span class="p">,</span> <span class="n">Ten</span><span class="p">,</span> <span class="n">Chi</span><span class="p">,</span> <span class="n">Raiton</span><span class="p">,</span> <span class="n">FleetingRaiju</span> <span class="p">]</span>
-
-<span class="n">NINPlayer</span><span class="o">.</span><span class="n">Set_etro_gearset</span><span class="p">(</span><span class="s2">&quot;https://etro.gg/gearset/73f9f3af-2fa1-4871-85a3-a0f6adbb5e28&quot;</span><span class="p">)</span> <span class="c1"># Set the Ninja&#39;s stat to be the etro gear set</span>
-
-<span class="n">newFight</span><span class="o">.</span><span class="n">AddPlayer</span><span class="p">([</span><span class="n">NINPlayer</span><span class="p">])</span> <span class="c1"># Adding players to the fight</span>
-
-<span class="n">TimeUnit</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># Unit of time per frame</span>
-<span class="n">TimeLimit</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># Max running time of the simulation (time IN the simulation)</span>
-
-<span class="c1"># Simulation parameters</span>
-<span class="n">newFight</span><span class="o">.</span><span class="n">RequirementOn</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Will check for actions requirement</span>
-<span class="n">newFight</span><span class="o">.</span><span class="n">IgnoreMana</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Will check for mana</span>
-<span class="n">vocal</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Want to output data in text</span>
-
-<span class="n">newFight</span><span class="o">.</span><span class="n">SimulateFight</span><span class="p">(</span><span class="n">TimeUnit</span><span class="p">,</span> <span class="n">TimeLimit</span><span class="p">,</span> <span class="n">vocal</span><span class="p">)</span> <span class="c1"># Simulating the fight</span>
-</pre></div>
-</div>
-<p>As you can see, one simply needs to use the <em>Set_etro_gearset</em> function on the player instance with as input the url of the gear set in question and it will be automatically
-applied to the player.</p>
+<p>The generated graphics (either DPS distribution or DPS Vs. Time) will be saved in the same directory where the script was executed.</p>
 <p>The rest of the documentation will focus on stuff that is not mandatory. But feel free to stop by anyway!</p>
 </section>
 </section>
@@ -766,8 +690,8 @@ applied to the player.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="userinterface.html" class="btn btn-neutral float-left" title="User interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="customize_spell.html" class="btn btn-neutral float-right" title="Customize Spell object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ffxivcalc’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="documentation/Fight/fight.html" class="btn btn-neutral float-right" title="Fight" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

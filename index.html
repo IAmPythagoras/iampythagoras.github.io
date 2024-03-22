@@ -4,10 +4,9 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to ffxiv-combat-simulator’s documentation! &mdash; ffxiv-combat-simulator 0.71.19 documentation</title>
+  <title>Welcome to ffxivcalc’s documentation! &mdash; ffxivcalc 0.8.925 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="https://pbs.twimg.com/media/FbQP45JaUAAheKk.jpg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -21,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="User interface" href="userinterface.html" /> 
+    <link rel="next" title="Introduction" href="getstarted.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -29,10 +28,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> ffxiv-combat-simulator
+            <a href="#" class="icon icon-home"> ffxivcalc
           </a>
               <div class="version">
-                0.71.19
+                0.8.925
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,11 +43,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="userinterface.html">User interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customize_spell.html">Customize Spell object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customize_fight.html">Customize Fight</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/GearSolver/gearSolverModule.html">GearSolver</a></li>
 </ul>
 
         </div>
@@ -57,7 +57,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">ffxiv-combat-simulator</a>
+          <a href="#">ffxivcalc</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -65,7 +65,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Welcome to ffxiv-combat-simulator’s documentation!</li>
+      <li>Welcome to ffxivcalc’s documentation!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -75,30 +75,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-ffxiv-combat-simulator-s-documentation">
-<h1>Welcome to ffxiv-combat-simulator’s documentation!<a class="headerlink" href="#welcome-to-ffxiv-combat-simulator-s-documentation" title="Permalink to this heading"></a></h1>
-<p><strong>FFXIV-combat-simulator</strong> or <strong>ffxivcalc</strong> for short, is a library/API that lets anyone simulate combat from the game
-<em>Final Fantasy XIV Online</em>. It can be used to simulate any sort of rotation with any sort of team composition. It even allows
-for completely customized actions to be performed by a player. This tool will let people (and you) experiment and optimize rotations and even entire raids in
-order to get lower kill times and higher DPS. This tool can do much more, and you can find all about it here.</p>
-<p>If you are not very familiar with code but still want to simulate simply read the <em>User interface</em> part.</p>
-<p>Feel free to join the discord for any questions :</p>
-<a class="reference internal image-reference" href="https://img.shields.io/discord/970724799464738977?color=7289da&amp;label=Discord&amp;logo=discord"><img alt="Spell_class_diagram" src="https://img.shields.io/discord/970724799464738977?color=7289da&amp;label=Discord&amp;logo=discord" style="width: 200px;" /></a>
+  <section id="welcome-to-ffxivcalc-s-documentation">
+<h1>Welcome to ffxivcalc’s documentation!<a class="headerlink" href="#welcome-to-ffxivcalc-s-documentation" title="Permalink to this heading"></a></h1>
+<p><strong>ffxivcalc</strong> is a python library that makes it possible to simulate combat from <em>Final Fantasy XIV Online</em>.
+It can be used to simulate any sort of rotation with any sort of team composition. It also allows for completely customized actions to be performed.
+This tool lets people experiment and optimize rotations and even entire raids in order to get lower kill times and higher DPS.</p>
+<p>As of version 0.8.911, this tool also has a fully working gear management functions as well as a <strong>Rotation BiS Solver (BETA)</strong> that is still in development.</p>
+<p>The first part of this documentation will focus on practical examples to get you started and the second part will simply show all different functions available with a short description of their
+usage and requirements.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This project AND the documentation is still under development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.</p>
+<p>This project is still in development, hence there might be some errors/bugs still not fixed or/and incomplete part of the documentation. Thank you for your understanding.</p>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="userinterface.html">User interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="userinterface.html#launching-the-ui">Launching the UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="userinterface.html#create-a-file-to-simulate-a-fight">Create a file to simulate a fight</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="userinterface.html#waitability">WaitAbility</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getstarted.html#fight-class">Fight Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getstarted.html#player-class">Player class</a></li>
@@ -114,49 +105,112 @@ order to get lower kill times and higher DPS. This tool can do much more, and yo
 <li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulate-a-dancer-and-ninja-opener-with-the-ninja-being-the-dancer-s-dance-partner">Simulate a Dancer and Ninja opener with the Ninja being the Dancer’s dance partner.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-two-ninjas-doing-the-exact-same-opener">Simulating two Ninjas doing the exact same opener</a></li>
 <li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-a-standard-8-man-raid-doing-their-opener">Simulating a standard 8 man raid doing their opener</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#importing-gear-from-etro-gg">Importing gear from etro.gg</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="customize_spell.html">Customize Spell object</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="customize_spell.html#hierarchy-of-spell">Hierarchy of Spell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customize_spell.html#modify-potency-mana-cost-cast-time-recast-time-etc-of-an-action">Modify potency, mana cost, cast time, recast time, etc. of an action</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#make-a-deepcopy-of-an-action">Make a deepcopy of an action</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-potency">Modify Potency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-casting-time-and-recast-time">Modify Casting time and recast time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-mana-cost">Modify mana cost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Fight/fight.html">Fight</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightInnit.html">Fight.__init__()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightAddPlayer.html">Fight.AddPlayer()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightSimulateFight.html">Fight.SimulateFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightComputeFunctions.html">Fight.ComputeFunctions()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightDeepCopy.html">Fight.deepCopy()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightGetEnemityList.html">Fight.GetEnemityList()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightPlayerForID.html">Fight.playerForID()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightSimulatePreBakedFight.html">Fight.SimulatePreBakedFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/fightSimulateZIPFight.html">Fight.SimulateZIPFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Fight/computeDamage.html">ComputeDamage()</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="customize_spell.html#requirement-and-effect">Requirement and Effect</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#spell-requirement">Spell Requirement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#spell-effect">Spell Effect</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-requirement">Modify Requirement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customize_spell.html#modify-effect">Modify Effect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Enemy/enemy.html">Enemy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyClass.html">Enemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyInnit.html">Enemy.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemySetEventList.html">Enemy.setEventList()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyUpdateTimer.html">Enemy.UpdateTimer()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEvent.html">EnemyEvent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEventInnit.html">EnemyEvent.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEventBeginCast.html">EnemyEvent.begin_cast()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEventCast.html">EnemyEvent.cast()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOT.html">EnemyDOT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOTInnit.html">EnemyDOT.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOTUpdateState.html">EnemyDOT.updateState()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/waitEvent.html">WaitEvent()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Jobs/jobs.html">Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/Player/player.html">Player</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/PlayerClass/playerClass.html">Player class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/Pet/petClass.html">Pet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/HealingBuff/healingBuffClass.html">HealingBuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/MitBuff/mitBuffClass.html">MitBuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/Shield/shieldClass.html">Shield</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/Base_Spell/baseSpell.html">Base_Spell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/spellObj/spellClass.html">Spell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/PreBakedAction/preBakedActionClass.html">PreBakedAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/ZipAction/zipActionClass.html">ZipAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/Buff/buffClass.html">buff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/BuffHistory/buffHistoryClass.html">buffHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/BuffPercentageHistory/buffPercentageHistoryClass.html">buffPercentageHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/ActionEnum/actionEnumClass.html">ActionEnum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/nameForId.html">ActionEnum.name_for_id()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/idForName.html">ActionEnum.id_for_name()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/casterAction.html">CasterAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/healerAction.html">HealerAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/tankAction.html">TankAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/meleeAction.html">MeleeAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/rangedAction.html">RangedAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/blmAction.html">BlackMageActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/rdmAction.html">RedMageActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/smnAction.html">SummonerActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/astAction.html">AstrologianActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/sgeAction.html">SageActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/schAction.html">ScholarActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/whmAction.html">WhiteMageActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/drkAction.html">DarkKnightActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/gnbAction.html">GunbreakerActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/pldAction.html">PaladinActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/warAction.html">WarriorActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/samAction.html">SamuraiActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/rprAction.html">ReaperActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/ninAction.html">NinjaActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/mnkAction.html">MonkActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/drgAction.html">DragoonActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/brdAction.html">BardActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/mchAction.html">MachinistActions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/dncAction.html">DancerActions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumClass.html">PlayerEnum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumNameForId.html">PlayerEnum.name_for_id()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumIdForName.html">PlayerEnum.id_for_name()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/roleEnum.html">RoleEnum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/jobEnum.html">JobEnum</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="customize_fight.html">Customize Fight</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="customize_fight.html#nextactionfunction">NextActionFunction()</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="customize_fight.html#nextactionfunction-overwrite-example">NextActionFunction() overwrite example</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="customize_fight.html#extractinfo">ExtractInfo()</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="customize_fight.html#extractinfo-overwrite-example">ExtractInfo() overwrite example</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="customize_fight.html#computedamage">ComputeDamage()</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="customize_fight.html#computedamage-overwrite-example">ComputeDamage() overwrite example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">API documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="API.html#locally-host-the-api">Locally host the API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="API.html#simulate-a-fight-using-the-api">Simulate a fight using the API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#failedrequirementeventlist">failedRequirementEventList</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#procsinfo">ProcsInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/GearSolver/gearSolverModule.html">GearSolver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/GearSolver/Gear/gearModule.html">Gear</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/gearImportGear.html">ImportGear()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/GearObj/gearClass.html">Gear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/GearSet/gearSetClass.html">GearSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/Stat/statClass.html">Stat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/Food/foodClass.html">Food</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/Materia/materiaClass.html">Materia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/MateriaGenerator/materiaGeneratorClass.html">MateriaGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/GearType/gearTypeClass.html">GearType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/StatType/statTypeClass.html">StatType</a></li>
 </ul>
 </li>
 </ul>
@@ -169,7 +223,7 @@ order to get lower kill times and higher DPS. This tool can do much more, and yo
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="userinterface.html" class="btn btn-neutral float-right" title="User interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getstarted.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

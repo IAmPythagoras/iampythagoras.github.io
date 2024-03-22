@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PreBakedAction &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="PreBakedAction.__init__()" href="preBakedActionInit.html" />
+    <link rel="prev" title="Ranged_Auto" href="../spellObj/DOTSpell/Auto_Attack/rangedAAClass.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../jobs.html">Jobs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Player/player.html">Player</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../baseSpell.html">Base_Spell</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../spellObj/spellClass.html">Spell</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PreBakedAction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="preBakedActionInit.html">PreBakedAction.__init__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="preBakedActionResetPercentageBonus.html">PreBakedAction.resetPercentageBonus()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="preBakedActionComputeExpectedDamage.html">PreBakedAction.ComputeExpectedDamage()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="preBakedActionComputeRandomDamage.html">PreBakedAction.ComputeRandomDamage()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ZipAction/zipActionClass.html">ZipAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Buff/buffClass.html">buff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../BuffHistory/buffHistoryClass.html">buffHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../BuffPercentageHistory/buffPercentageHistoryClass.html">buffPercentageHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ActionEnum/actionEnumClass.html">ActionEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PlayerEnum/playerEnumClass.html">PlayerEnum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GearSolver/gearSolverModule.html">GearSolver</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../jobs.html">Jobs</a> &raquo;</li>
+          <li><a href="../baseSpell.html">Base_Spell</a> &raquo;</li>
+      <li>PreBakedAction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/documentation/Jobs/Base_Spell/PreBakedAction/preBakedActionClass.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="prebakedaction">
+<h1>PreBakedAction<a class="headerlink" href="#prebakedaction" title="Permalink to this heading"></a></h1>
+<p>This is a preprocessed action. These actions record buffs and other effects that happen and they allow
+the recomputation of the damage of the action. PreBakedAction allows to simulate for a given GCD timer value and then recompute
+the DPS of a whole simulation where we change non speed related values much quicker than by resimulating the whole simulation.</p>
+<p>It is similar to a ZIPAction, but it has less preprocessing than a ZIPAction does.</p>
+<p>PreBakedActions are used with the Rotation BiS solver to quickly compute different DPS given
+a gear set.</p>
+<p><strong>Class attributes</strong></p>
+<ul class="simple">
+<li><p>PreBakedAction.IsTank : bool - If the player doing this PreBakedAction is a tank.</p></li>
+<li><p>PreBakedAction.MainStatPercentageBonus : float - PercentageBonus of the MainStat (given by team composition).</p></li>
+<li><p>PreBakedAction.buffList : list[buff] - List of all buffs on the action.</p></li>
+<li><p>PreBakedAction.TraitBonus : float - Damage bonus from trait (Ex: 1.3).</p></li>
+<li><p>PreBakedAction.type : int - Type of the original action. Refer to Spell class for different type value.</p></li>
+<li><p>PreBakedAction.timeStamp : float - time stamp of the action.</p></li>
+<li><p>PreBakedAction.Potency : int - Potency of the action.</p></li>
+<li><p>PreBakedAction.AutoCrit : bool - True if action is auto crit.</p></li>
+<li><p>PreBakedAction.AutoDH : bool - True if action is auto DH. If is auto direct crit then both are true.</p></li>
+<li><p>PreBakedAction.AutoCritBonus : float - Multiplicative bonus to damage due to auto crit (come from bonus crit).</p></li>
+<li><p>PreBakedAction.AutoDHBonus : float - Multiplicative bonus do damage on auto crit due to DH.</p></li>
+<li><p>PreBakedAction.isFromPet : bool - True if is a Pet action.</p></li>
+<li><p>PreBakedAction.isGCD : bool - True if is a GCD.</p></li>
+<li><p>PreBakedAction.spellDPSBuff : float - Multiplicative bonus due to spell.</p></li>
+<li><p>PreBakedAction.CritBonus : float - Critical hit bonus on the action.</p></li>
+<li><p>PreBakedAction.DHBonus : float - Direct Hit bonus on the action.</p></li>
+<li><p>PreBakedAction.PercentageBonus : list[float] - List of all damage mult bonus coming from buff. This list is dynamically updated once the function Fight.SimulatePreBakedFight() is called as the code will append the required multiplicative buff to it based on the buff present in PreBakedAction.buffList and others.</p></li>
+<li><p>PreBakedAction.potionIsActive : bool - True if this action is done under a potion effect.</p></li>
+<li><p>PreBakedAction.isWildFire : bool - True if the action is wildfire.</p></li>
+</ul>
+<p><strong>Class functions</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preBakedActionInit.html">PreBakedAction.__init__()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preBakedActionResetPercentageBonus.html">PreBakedAction.resetPercentageBonus()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preBakedActionComputeExpectedDamage.html">PreBakedAction.ComputeExpectedDamage()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preBakedActionComputeRandomDamage.html">PreBakedAction.ComputeRandomDamage()</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../spellObj/DOTSpell/Auto_Attack/rangedAAClass.html" class="btn btn-neutral float-left" title="Ranged_Auto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preBakedActionInit.html" class="btn btn-neutral float-right" title="PreBakedAction.__init__()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

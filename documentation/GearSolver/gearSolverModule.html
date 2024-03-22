@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GearSolver &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Gear" href="Gear/gearModule.html" />
+    <link rel="prev" title="JobEnum" href="../Jobs/PlayerEnum/jobEnum.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GearSolver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Gear/gearModule.html">Gear</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>GearSolver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/documentation/GearSolver/gearSolverModule.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gearsolver">
+<h1>GearSolver<a class="headerlink" href="#gearsolver" title="Permalink to this heading"></a></h1>
+<p>GearSolver is a module that contains logic for the gear implementation of the solver and the code of the <em>Rotation BiS Solver</em>.</p>
+<p><strong>Import</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ffxivcalc.GearSolver</span> <span class="kn">import</span> <span class="n">Gear</span><span class="p">,</span> <span class="n">Solver</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Gear/gearModule.html">Gear</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Gear/gearImportGear.html">ImportGear()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/GearObj/gearClass.html">Gear</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearInit.html">Gear.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetStat.html">Gear.GetStat()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearAddMateria.html">Gear.AddMateria()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetMateriaNumber.html">Gear.getMateriaNumber()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetWeaponDelay.html">Gear.getWeaponDelay()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetNumberPossibleMateria.html">Gear.getNumberPossibleMateria()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetGearTypeName.html">Gear.getGearTypeName()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetMateriaTypeList.html">Gear.getMateriaTypeList()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetNumberMateria.html">Gear.getNumberMateria()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearSetWeaponDelay.html">Gear.setWeaponDelay()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearSetIgnoreOptimize.html">Gear.setIgnoreOptimize()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearGetIgnoreOptimize.html">Gear.getIgnoreOptimize()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearSetStatLimit.html">Gear.setStatLimit()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearForceAddMateria.html">Gear.forceAddMateria()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearHasValidMelding.html">Gear.hasValidMelding()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearCanAddMateriaNoLoss.html">Gear.canAddMateriaNoLoss()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearCanReplaceMateriaNoLoss.html">Gear.canReplaceMateriaNoLoss()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearHasMateriaType.html">Gear.hasMateriaType()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearResetMateriaSlot.html">Gear.ResetMateriaSlot()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearRemoveMateriaType.html">Gear.removeMateriaType()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearStr.html">Gear.__str__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearHasStatType.html">Gear.__hasStatType()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearObj/gearAddMateriaPrivate.html">Gear.__addMateria()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/GearSet/gearSetClass.html">GearSet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetInit.html">GearSet.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetIter.html">GearSet.__iter__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetNext.html">GearSet.__next__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetRemoveMateriaType.html">GearSet.removeMateriaType()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetRemoveFirstFoundMateriaInvalidPiece.html">GearSet.removeFirstFoundMateriaInvalidPiece()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetRemoveMateriaSpecGear.html">GearSet.removeMateriaSpecGear()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetAddFood.html">GearSet.addFood()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetRemoveFood.html">GearSet.removeFood()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetStr.html">GearSet.__str__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetFindFirstPieceMateria.html">GearSet.findFirstPieceMateria()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetAddGear.html">GearSet.AddGear()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetStrMateriaNumber.html">GearSet.strMateriaNumber()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetRemoveGear.html">GearSet.RemoveGear()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetGetMateriaLimit.html">GearSet.getMateriaLimit()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetGetMateriaTypeLimit.html">GearSet.getMateriaTypeLimit()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetGetNumberMateria.html">GearSet.getNumberMateria()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetResetGearSet.html">GearSet.ResetGearSet()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetGetWeaponDelay.html">GearSet.getWeaponDelay()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetGetGearSetStat.html">GearSet.GetGearSetStat()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetHasValidMelding.html">GearSet.hasValidMelding()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearSet/gearSetGetMateriaTypeList.html">GearSet.getMateriaTypeList()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/Stat/statClass.html">Stat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Stat/statInit.html">Stat.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Stat/statStr.html">Stat.__str__()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/Food/foodClass.html">Food</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Food/foodInit.html">Food.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Food/foodGetLimitStatBonus.html">Food.getLimitStatBonus()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Food/foodGetPercentStatBonus.html">Food.getPercentStatBonus()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Food/foodStr.html">Food.__str__()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/Materia/materiaClass.html">Materia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Materia/materiaInit.html">Materia.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/Materia/materiaStr.html">Materia.__str__()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/MateriaGenerator/materiaGeneratorClass.html">MateriaGenerator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/MateriaGenerator/materiaGeneratorInit.html">MateriaGenerator.__init__()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/MateriaGenerator/materiaGeneratorGenerateMateria.html">MateriaGenerator.GenerateMateria()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/GearType/gearTypeClass.html">GearType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearType/gearTypeNameForId.html">GearType.name_for_id()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/GearType/gearTypeIdForName.html">GearType.id_for_name()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Gear/StatType/statTypeClass.html">StatType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gear/StatType/statTypeNameForId.html">StatType.name_for_id()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gear/StatType/statTypeIdForName.html">StatType.id_for_name()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Jobs/PlayerEnum/jobEnum.html" class="btn btn-neutral float-left" title="JobEnum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Gear/gearModule.html" class="btn btn-neutral float-right" title="Gear" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

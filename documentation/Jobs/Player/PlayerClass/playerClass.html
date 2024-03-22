@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Player class &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Player.__innit__()" href="playerInnit.html" />
+    <link rel="prev" title="Player" href="../player.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../jobs.html">Jobs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../player.html">Player</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Player class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="playerInnit.html">Player.__innit__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerClassUpdateTimer.html">Player.updateTimer()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerClassUpdateCD.html">Player.updateCD()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerClassUpdateLock.html">Player.updateLock()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddFire.html">Player.AddFire()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddIce.html">Player.AddFire()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddHuton.html">Player.AddHuton()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddNinki.html">Player.AddNinki()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerResetRitual.html">Player.ResetRitual()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddGauge.html">Player.AddGauge()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddShroud.html">Player.AddShroud()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerOpenChakra.html">Player.OpenChakra()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerResetMasterGauge.html">Player.ResetMasterGauge()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerAddBestChakra.html">Player.addBeastChakra()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerBeastChakraType.html">Player.BeastChakraType()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="playerResetPrimalEffect.html">Player.resetPrimalEffect()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Pet/petClass.html">Pet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HealingBuff/healingBuffClass.html">HealingBuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MitBuff/mitBuffClass.html">MitBuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Shield/shieldClass.html">Shield</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Base_Spell/baseSpell.html">Base_Spell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ActionEnum/actionEnumClass.html">ActionEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PlayerEnum/playerEnumClass.html">PlayerEnum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GearSolver/gearSolverModule.html">GearSolver</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../jobs.html">Jobs</a> &raquo;</li>
+          <li><a href="../player.html">Player</a> &raquo;</li>
+      <li>Player class</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/documentation/Jobs/Player/PlayerClass/playerClass.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="player-class">
+<h1>Player class<a class="headerlink" href="#player-class" title="Permalink to this heading"></a></h1>
+<p>The Player class represents a player character in a simulation. It contains information such as : HP, mana, damage done, state, stats, etc.
+Every different job will be a different player object, in the sense that a BlackMage player will not have the same attributes as a Samurai player.
+Only the commonly shared attributes and functions will be explored here.</p>
+<p><strong>Class attributes</strong></p>
+<p>Since there are a lot of attributes, they will be brocken down in different categories.</p>
+<p><em>Base attributes</em></p>
+<ul class="simple">
+<li><p>Player.ActionSet : list[Spell] - List of actions to perform.</p></li>
+<li><p>Player.RoleEnum : RoleEnum - Value of the RoleEnum for this player (defines a role).</p></li>
+<li><p>Player.Job : JobEnum - Value of the JobEnum for this player (define a job).</p></li>
+<li><p>Player.ClassActions : class - An enum that holds IDs of all the actions of the class of the player.</p></li>
+<li><p>Player.CurrentFight : Fight - Reference to the Fight object the player is in.</p></li>
+<li><p>Player.playerID : int - Unique identifier of the player in the Player.CurrentFight.</p></li>
+<li><p>Player.PlayerName : str - Name of the player. Displayed in results.</p></li>
+<li><p>Player.Pet : Pet - Reference to the Pet summoned by the Player.</p></li>
+<li><p>Player.baseDelay : float - Base delay between every autos.</p></li>
+<li><p>Player.autoPointer : DOTSpell - This is a reference to a player’s autos DOT object.</p></li>
+<li><p>Player.MaxHP : int - Max HP of the player.</p></li>
+<li><p>Player.Stat : dict[str : int] - Stats of the player.</p></li>
+<li><p>Player.baseMainStat : int - Original value of the stat ‘MainStat’ of the player.</p></li>
+<li><p>Player.Trait : float - Trait multiplicative value for the player.</p></li>
+<li><p>Player.f_WD : float - Damage stat value from weapon.</p></li>
+<li><p>Player.f_DET : float - Damage stat value from determination.</p></li>
+<li><p>Player.f_TEN : float - Damage stat value from tenacity.</p></li>
+<li><p>Player.CritRate : float - Rate of critical hit.</p></li>
+<li><p>Player.CritMult : float - Damage multiplier on critical hits.</p></li>
+<li><p>Player.DHRate : float - Rate of direct hit.</p></li>
+<li><p>Player.DHAuto : Damage multiplier on auto crit/dh.</p></li>
+<li><p>Player.JobMod : int - Job mod value for this player.</p></li>
+</ul>
+<p><em>State tracking attributes</em></p>
+<ul class="simple">
+<li><p>Player.Mana : int - Current mana of the player.</p></li>
+<li><p>Player.HP : int - Current HP of the player.</p></li>
+<li><p>Player.EffectList : list[function] - List of all effects applied on the player at one time.</p></li>
+<li><p>Player.EffectCDList : list[function] - List of functions that check the countdown/duration of effects. These functions will remove an effect if it has to.</p></li>
+<li><p>Player.DOTList : list[DOTSpel] - List of all DOT the player is currently applying.</p></li>
+<li><p>Player.CastingSpell : Spell - Object of the current action being casted.</p></li>
+<li><p>Player.Casting : bool - True if the player is currently casting.</p></li>
+<li><p>Player.oGCDLock : bool - True of the player is locked from doing any oGCD.</p></li>
+<li><p>Player.GCDLock : bool - True if the player is locked from doing any GCD.</p></li>
+<li><p>Player.CastingLockTimer : float - Timer until the player can start the next cast.</p></li>
+<li><p>Player.oGCDLockTimer : float - Timer until the player will no longer be locked from doing oGCD (until oGCDLock is set to False).</p></li>
+<li><p>Player.GCDLockTimer : float - Timer until the player will no longer be locked from doing GCD (until GCDLock is set to False).</p></li>
+<li><p>Player.NextSpell : int - Index of the next action to perform (index in the Player.ActionSet list)</p></li>
+<li><p>Player.ManaTick : float - Current value of the mana tic timer.</p></li>
+<li><p>Player.mainStatBonus : float - Used to store in memory any gain of main stat through potions.</p></li>
+<li><p>Player.TrueLock : bool - If true the player is completely lock and is done performing its ActionSet. The simulator will not update the state of a player where truelock is true.</p></li>
+<li><p>Player.NoMoreActionLog : bool - Indicates that a log of the player not having any more actions has been created.</p></li>
+<li><p>Player.NoMoreAction : bool - Indicates that a player has no more actions to do. It has reached the end of its ActionSet.</p></li>
+<li><p>Player.PotionTimer : float - Timer of a potion effect.</p></li>
+<li><p>Player.currentDelay : float - Current delay between every autos.</p></li>
+<li><p>Player.Haste : int - Current total haste value the player has.</p></li>
+<li><p>Player.autoHaste : int - Current total haste the player has that only work on the delay between autos.</p></li>
+<li><p>Player.hasteHasChanged : bool - Set to true when an action changes the player’s haste due to being applied or to expiration of an effect.</p></li>
+<li><p>Player.hasChangeValue : int - Amount by which haste has changed. Can be negative (meaning a lost of haste).</p></li>
+<li><p>Player.ShieldList : list[Shield] - List of all Shield object currently on the player.</p></li>
+<li><p>Player.ShieldNameList : list[str] - List of the name of all shields on the player.</p></li>
+<li><p>Player.EnemyDOT : list[EnemyDOT] - List of all EnemyDOT object currently on the player.</p></li>
+<li><p>Player.TotalEnemity : int - Total enemity the player currently has.</p></li>
+<li><p>Player.MagicMitigation : float - Current value of magic mitigation the player has.</p></li>
+<li><p>Player.PhysicalMitigation : float - Current value of physical mitigation the player has.</p></li>
+<li><p>Player.auras : list - List of all auras the player starts with.</p></li>
+<li><p>Player.buffList : list[buff] - List of all multiplicative buffs on the player.</p></li>
+<li><p>Player.MitBuffList : list[MitBuff] - List of all multiplicative mitigation buffs on the player.</p></li>
+<li><p>Player.MitBuffListName : list[str] - List of all names of the mitigation buffs currently on the player.</p></li>
+<li><p>Player.ReceivedHealBuffList : list[HealingBuff] - List of all multiplicative healing buffs that apply on heals the player receives.</p></li>
+<li><p>Player.ReceivedHealBuffNameList : list[str] - Name of all multiplicative healing buffs that apply on heals the player receives.</p></li>
+<li><p>Player.GivenHealBuffList : list[HealingBuff] - List of all multiplicative healing buffs that apply on heals the player gives.</p></li>
+<li><p>Player.GivenHealBuffNameList : list[str] - Name of all multiplicative healing buffs that apply on heals the player receives.</p></li>
+<li><p>Player.EffectToRemove : list[function] - List of all functions to remove from the player’s EffectList list on the next check.</p></li>
+<li><p>Player.ArcanumTimer : float - Timer for any of the arcanum buff given to the player.</p></li>
+<li><p>Player.ArcanumBuff : buff - Arcanum buff object given to the player.</p></li>
+<li><p>Player.MeditativeBrotherhoodTimer : float - Timer for meditative brotherhood effect.</p></li>
+<li><p>Player.OblationTimer : float - Timer for oblation’s effect.</p></li>
+<li><p>Player.CorundumTimer : float - Timer for Hearts of Corundum’s effect.</p></li>
+<li><p>Player.NascentFlashTimer : float - Timer for Nascent flash’s effect.</p></li>
+<li><p>Player.InterventionTimer : float - Timer for Intervention’s effect.</p></li>
+</ul>
+<p><em>PreBakedAction related attributes</em></p>
+<ul class="simple">
+<li><p>Player.PreBakedActionSet : list[PreBakedAction] - List of all PreBakedActions to perform.</p></li>
+<li><p>Player.ChainStratagemHistory : list[buffHistory] - Contains all history of an occurence of chain stratagem.</p></li>
+<li><p>Player.BattleLitanyHistory : list[buffHistory] - Contains all history of an occurence of battle litany.</p></li>
+<li><p>Player.WanderingMinuetHistory : list[buffHistory] - Contains all history of an occurence of wandering minuet.</p></li>
+<li><p>Player.BattleVoiceHistory : list[buffHistory] - Contains all history of an occurence of battle voice.</p></li>
+<li><p>Player.DevilmentHistory : list[buffHistory] - Contains all history of an occurence of devilment.</p></li>
+<li><p>Player.PotionHistory : list[buffHistory] - Contains all history of an occurence of a potion.</p></li>
+<li><p>Player.PercentBuffHistory : list[buffHistory] - Contains all history of an occurence of any multiplicative buff.</p></li>
+</ul>
+<p><em>ZIPActions related attributes</em></p>
+<ul class="simple">
+<li><p>Player.ZIPActionSet : list[ZIPAction] - List of ZIPActions to perform.</p></li>
+<li><p>Player.ZIPDPSRun : list[float] - List of all ZIP runs’ DPS performed.</p></li>
+<li><p>Player.ZIPRunPercentile : dict[str : int] - Count of the amount of runs in each percentiles.</p></li>
+<li><p>Player.DPSBar : dict[str : int] - Count of different DPS obtained during ZIP simulations (random simulations).</p></li>
+</ul>
+<p><em>Counter attributes</em></p>
+<ul class="simple">
+<li><p>Player.GCDCounter : int - Amount of GCD performed.</p></li>
+<li><p>Player.totalTimeNoFaster : float - Total time the player has been doing actions that cannot be made faster by SpS/SkS. Used for prebakedactions.</p></li>
+<li><p>Player.NumberDamageSpell : int - Amount of actions done that have non zero potency.</p></li>
+<li><p>Player.TotalPotency : int - Total potency done by the player.</p></li>
+<li><p>Player.TotalDamage : int - Total damage done by the player.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On top of these attributes, as stated above, a player will generally have much more depending on its role and job value. If you are interested in knowing more
+about these other attributes go check the <em>Fight.py</em> page on github and locate the functions init_tank(), init_healer(), init_caster(), init_melee(), init_physicalranged() and then
+the function init_*jobname*() for further information on the attributes initialized when creating a player.</p>
+</div>
+<p><strong>Class functions</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playerInnit.html">Player.__innit__()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerClassUpdateTimer.html">Player.updateTimer()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerClassUpdateCD.html">Player.updateCD()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerClassUpdateLock.html">Player.updateLock()</a></li>
+</ul>
+</div>
+<p><strong>Class functions for BlackMage</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playerAddFire.html">Player.AddFire()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerAddIce.html">Player.AddFire()</a></li>
+</ul>
+</div>
+<p><strong>Class functions for Ninja</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playerAddHuton.html">Player.AddHuton()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerAddNinki.html">Player.AddNinki()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerResetRitual.html">Player.ResetRitual()</a></li>
+</ul>
+</div>
+<p><strong>Class functions for Reaper</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playerAddGauge.html">Player.AddGauge()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerAddShroud.html">Player.AddShroud()</a></li>
+</ul>
+</div>
+<p><strong>Class functions for Monk</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playerOpenChakra.html">Player.OpenChakra()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerResetMasterGauge.html">Player.ResetMasterGauge()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerAddBestChakra.html">Player.addBeastChakra()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playerBeastChakraType.html">Player.BeastChakraType()</a></li>
+</ul>
+</div>
+<p><strong>Class functions for Summoner</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playerResetPrimalEffect.html">Player.resetPrimalEffect()</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../player.html" class="btn btn-neutral float-left" title="Player" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="playerInnit.html" class="btn btn-neutral float-right" title="Player.__innit__()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
