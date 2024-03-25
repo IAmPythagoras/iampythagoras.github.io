@@ -6,7 +6,7 @@ to their unique id.
 
 **Enum**
 
-* RagingStrike = 101
+* RagingStrikes = 101
 * Barrage = 107
 * MageBallad = 114
 * ArmyPaeon = 116
@@ -25,11 +25,11 @@ to their unique id.
 * RefulgentArrow = 7409
 * Shadowbite = 16494
 * BurstShot = 16495
-* ApexArrow = 16496 
+* ApexArow = 16496 
 * Ladonsbite = 25783
 * RadiantFinale = 25785
 * RepellingShot = 112
-* BloodLetter = 110
-* BlastArrow = 25784
+* Bloodletter = 110
+* BlastArow = 25784
 * CausticbiteDOT = -21
 * StormbiteDOT = -20

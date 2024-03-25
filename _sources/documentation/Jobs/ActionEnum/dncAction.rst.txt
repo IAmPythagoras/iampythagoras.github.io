@@ -30,7 +30,7 @@ to their unique id.
 * Fountain = 15990
 * Cascade = 15989
 * TechnicalFinish = 16004
-* StandardFinish = 16003
+* StandardFinish = 16192
 * ImprovisedFinish = 25789
 * Ending = 18073
 * Tillana = 25790

@@ -12,3 +12,5 @@ GearSolver is a module that contains logic for the gear implementation of the so
 .. toctree:: 
 
     Gear/gearModule
+    Solver/solverModule
+    

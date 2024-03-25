@@ -7,6 +7,8 @@
   <title>Welcome to ffxivcalc’s documentation! &mdash; ffxivcalc 0.8.925 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,10 +19,12 @@
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="getstarted.html" /> 
+    <link rel="next" title="Introduction" href="GetStarted/getstarted.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,12 +47,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetStarted/getstarted.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/Fight/fight.html">Fight</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/Enemy/enemy.html">Enemy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/Jobs/jobs.html">Jobs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/GearSolver/gearSolverModule.html">GearSolver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/SimulationRecord/simulationRecordModule.html">SimulationRecord</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Tester/testerModule.html">Tester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Request/requestModule.html">Request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/helperCode/helperCodeModule.html">helperCode</a></li>
 </ul>
 
         </div>
@@ -90,23 +98,12 @@ usage and requirements.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getstarted.html#fight-class">Fight Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getstarted.html#player-class">Player class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getstarted.html#spell-class">Spell class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#base-spell">Base Spell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#role-spell">Role Spell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#job-spell">Job_Spell</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getstarted.html#fight-simulatefight">Fight.SimulateFight()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getstarted.html#more-code-examples">More code examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-a-blackmage-but-with-requirementson-false">Simulating a BlackMage but with <em>RequirementsOn</em> = False</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulate-a-dancer-and-ninja-opener-with-the-ninja-being-the-dancer-s-dance-partner">Simulate a Dancer and Ninja opener with the Ninja being the Dancer’s dance partner.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-two-ninjas-doing-the-exact-same-opener">Simulating two Ninjas doing the exact same opener</a></li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted.html#simulating-a-standard-8-man-raid-doing-their-opener">Simulating a standard 8 man raid doing their opener</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="GetStarted/getstarted.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GetStarted/getstarted.html#fight-class">Fight Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetStarted/getstarted.html#player-class">Player class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetStarted/getstarted.html#spell-class">Spell class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetStarted/getstarted.html#fight-simulatefight">Fight.SimulateFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetStarted/getstarted.html#more-code-examples">More code examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
@@ -124,95 +121,43 @@ usage and requirements.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/Enemy/enemy.html">Enemy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyClass.html">Enemy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyInnit.html">Enemy.__init__()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemySetEventList.html">Enemy.setEventList()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyUpdateTimer.html">Enemy.UpdateTimer()</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEvent.html">EnemyEvent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEventInnit.html">EnemyEvent.__init__()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEventBeginCast.html">EnemyEvent.begin_cast()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEventCast.html">EnemyEvent.cast()</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOT.html">EnemyDOT</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOTInnit.html">EnemyDOT.__init__()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOTUpdateState.html">EnemyDOT.updateState()</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyClass/enemyClass.html">Enemy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyEvent/enemyEvent.html">EnemyEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/EnemyDOT/enemyDOT.html">EnemyDOT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="documentation/Enemy/waitEvent.html">WaitEvent()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/Jobs/jobs.html">Jobs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/Player/player.html">Player</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/PlayerClass/playerClass.html">Player class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/Pet/petClass.html">Pet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/HealingBuff/healingBuffClass.html">HealingBuff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/MitBuff/mitBuffClass.html">MitBuff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Player/Shield/shieldClass.html">Shield</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/Base_Spell/baseSpell.html">Base_Spell</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/spellObj/spellClass.html">Spell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/PreBakedAction/preBakedActionClass.html">PreBakedAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/ZipAction/zipActionClass.html">ZipAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/Buff/buffClass.html">buff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/BuffHistory/buffHistoryClass.html">buffHistory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/Base_Spell/BuffPercentageHistory/buffPercentageHistoryClass.html">buffPercentageHistory</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/ActionEnum/actionEnumClass.html">ActionEnum</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/nameForId.html">ActionEnum.name_for_id()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/idForName.html">ActionEnum.id_for_name()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/casterAction.html">CasterAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/healerAction.html">HealerAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/tankAction.html">TankAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/meleeAction.html">MeleeAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/rangedAction.html">RangedAction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/blmAction.html">BlackMageActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/rdmAction.html">RedMageActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/smnAction.html">SummonerActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/astAction.html">AstrologianActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/sgeAction.html">SageActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/schAction.html">ScholarActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/whmAction.html">WhiteMageActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/drkAction.html">DarkKnightActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/gnbAction.html">GunbreakerActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/pldAction.html">PaladinActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/warAction.html">WarriorActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/samAction.html">SamuraiActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/rprAction.html">ReaperActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/ninAction.html">NinjaActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/mnkAction.html">MonkActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/drgAction.html">DragoonActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/brdAction.html">BardActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/mchAction.html">MachinistActions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/ActionEnum/dncAction.html">DancerActions</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumClass.html">PlayerEnum</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumNameForId.html">PlayerEnum.name_for_id()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumIdForName.html">PlayerEnum.id_for_name()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/roleEnum.html">RoleEnum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/Jobs/PlayerEnum/jobEnum.html">JobEnum</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/Player/player.html">Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/Base_Spell/baseSpell.html">Base_Spell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/ActionEnum/actionEnumClass.html">ActionEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Jobs/PlayerEnum/playerEnumClass.html">PlayerEnum</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/GearSolver/gearSolverModule.html">GearSolver</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="documentation/GearSolver/Gear/gearModule.html">Gear</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/gearImportGear.html">ImportGear()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/GearObj/gearClass.html">Gear</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/GearSet/gearSetClass.html">GearSet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/Stat/statClass.html">Stat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/Food/foodClass.html">Food</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/Materia/materiaClass.html">Materia</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/MateriaGenerator/materiaGeneratorClass.html">MateriaGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/GearType/gearTypeClass.html">GearType</a></li>
-<li class="toctree-l3"><a class="reference internal" href="documentation/GearSolver/Gear/StatType/statTypeClass.html">StatType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/GearSolver/Gear/gearModule.html">Gear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/GearSolver/Solver/solverModule.html">Solver</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/SimulationRecord/simulationRecordModule.html">SimulationRecord</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/SimulationRecord/record/recordModule.html">record</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Tester/testerModule.html">Tester</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Tester/testImplementation/testImplementationModule.html">testImplementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/Request/requestModule.html">Request</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Request/etroRequest/etroModule.html">etro_request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Request/fflogsApi/fflogsApiModule.html">FFLogs_api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Request/customColumns.html">custom_columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Request/prepull.html">prepull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/Request/ffxivcalcViewTranslator.html">ffxivcalcViewTranslator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/helperCode/helperCodeModule.html">helperCode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/helperCode/Exceptions/exceptionsModule.html">exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/helperCode/Progress/progressModule.html">Progress</a></li>
 </ul>
 </li>
 </ul>
@@ -223,7 +168,7 @@ usage and requirements.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="getstarted.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="GetStarted/getstarted.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

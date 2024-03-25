@@ -39,6 +39,8 @@ to their unique id.
 * Physick = 16230
 * Resurrection = 173
 * Summon = 7427
+* Rekindle = 25830
+* RadiantAegis = 25799 
 * SummonEnkindle = -17
 * ApplySummonAuto = -115
 * BahamutAuto = -14

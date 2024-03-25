@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiSSolver() &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/dark_mode_js/default_dark.js"></script>
+        <script src="../../../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="materiaBiSSolverV3()" href="materiaBiSSolverV3.html" />
+    <link rel="prev" title="findGCDTimerRange()" href="findGCDTimerRange.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../GetStarted/getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gearSolverModule.html">GearSolver</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Gear/gearModule.html">Gear</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="solverModule.html">Solver</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getBaseStat.html">getBaseStat()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getGearDPSValue.html">getGearDPSValue()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="computeDamageValue.html">computeDamageValue()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="computeGCDTimer.html">computeGCDTimer()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="findGCDTimerRange.html">findGCDTimerRange()</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BiSSolver()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materiaBiSSolverV3.html">materiaBiSSolverV3()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materiaDHAndDetSolver.html">materiaDHAndDetSolver()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pietySolver.html">pietySolver()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../SimulationRecord/simulationRecordModule.html">SimulationRecord</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tester/testerModule.html">Tester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Request/requestModule.html">Request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helperCode/helperCodeModule.html">helperCode</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../gearSolverModule.html">GearSolver</a> &raquo;</li>
+          <li><a href="solverModule.html">Solver</a> &raquo;</li>
+      <li>BiSSolver()</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/documentation/GearSolver/Solver/BiSSolver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bissolver">
+<h1>BiSSolver()<a class="headerlink" href="#bissolver" title="Permalink to this heading"></a></h1>
+<p>Finds the BiS of the player given a Gear search space and a Fight. The Solver will output to a file named bisSolver[Job]Result[number].txt with all the relevant information and returns the gearSets.</p>
+<p>The solver outputs the best Expected Damage GearSet. The solver requires at least one piece of every possible slots.</p>
+<p>Note that is is possible to give a “prebaked” BiS by only giving 1 choice for some pieces and that it is also possible to add materias to the pieces in the GearSpace before running the solver.</p>
+<p>It is also recommend to have useNewAlgo set to true in order to use the faster and more efficient algorithm.</p>
+<p>If you are solving for the Expected Damage BiS it is also recommend to have findOptMateriaGearBF set to True in order to try
+every possible gear set as otherwise the best meld is only found once a gear set is found.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Optimizing random gear sets hasn’t been worked on for a bit. Assume only ‘expected damage’ optimization is working.</p>
+</div>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p>Fight : Fight - Fight object.</p></li>
+<li><p>GearSpace : dict - Dictionnary filled with the different gear pieces the algorithm can search through. Must have at least one of each gear types</p></li>
+<li><p>Materiaspace : list - List of all the stats the solver will look through when optimizing melds. Must be at least 3 materias</p></li>
+<li><p>FoodSpace : list - List of all food to look into. Must be non-empty</p></li>
+<li><p>PercentileToOpt : list - List of all gearset to optimize. Exp means to optimize expected damage. SHOULD BE LEFT AS “exp” ONLY.</p></li>
+<li><p>materiaDepthSearchIterator : int - Depth for which the Materia optimization searches into per step. (This feature is disabled. Left as default or 0)</p></li>
+<li><p>randomIteration : int - Number of times the solver will simulate random runs. Must be at least 100. (This feature is disabled. Leave at 100).</p></li>
+<li><p>oddMateriaValue : int - Stat gained from odd Materia.</p></li>
+<li><p>evenMateriaValue : int - Stat gained from even Materia.</p></li>
+<li><p>PlayerIndex : int - Index of the player for which the user wants to optimize the gearset. Must be the index of the player in the Fight.PlayerList.</p></li>
+<li><p>PlayerID : int - ID of the player for which we want to optimize.</p></li>
+<li><p>mendSpellSpeed : bool - If True the solver will look at Spell Speed value for speed.</p></li>
+<li><p>maxSPDValue : int - Max Spell Speed or skill Speed value. Every gear set above that value will be discarded.</p></li>
+<li><p>minSPDValue : int - Min Spell Speed or skill Speed value. Every gear set under that value will be discarded.</p></li>
+<li><p>useNewAlgo : bool - If set to true will use V3 of materiaBiSSolver. ALWAYS USE THIS.</p></li>
+<li><p>oversaturationIterationsPreGear : int - Number of times the algorithm will oversaturate gear before looking for best gear set</p></li>
+<li><p>oversaturationIterationsPostGear : int - Number of times the algorithm will oversaturate gear before looking for best materias</p></li>
+<li><p>findOptMateriaGearBF : bool - If true solver will find best gearset/food/melding using given algorithm. Only recommended for Expected.</p></li>
+<li><p>swapDHDetBeforeSpeed : bool - If True, the solver will swap DH and Det before swapping melds with Speed materias. If False it swaps after.</p></li>
+<li><p>minPiety : int - Minimum required Piety value for the set. By default set to 400.</p></li>
+<li><p>gcdTimerSpecificActionList : dict - Dictionary with key (gcdTimer, hastedGCDTimer) where the key maps to a list of actions to perform for the given gcdTimer and hastedGCDTimer. If is empty we ignore and only use the action list present in the fight object. Recommended to use the findGCDTimerRange() function with required minSPDValue and maxSPDValue in order to get an accurate dictionary. The mapping of gcd Tier does not have to be exhaustive. If no key is found it will use the rotation of the Fight object instead.</p></li>
+<li><p>saveAsFile : bool - If true saves the result in a file.</p></li>
+<li><p>showBar : bool - If true shows loading bar. If false doesn’t but still updates the loading bar’s memory</p></li>
+<li><p>loadingBarBuffer : dict - This dictionnary will be given the progress bar’s adress at the key ‘pb’. Can be used to access the PB.</p></li>
+<li><p>returnGearSet : bool = True - If true returns the gear set,random,text. If false returns the expectedDPS,text</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Returns the optimalGearSet, optimalRandomGearSet and text result (GearSet, dict[str : GearSet], str) if returnGearSet = True and returns curMaxDPS and text (float, str) otherwise. This function also saves the text results as a .txt file.</p>
+<p><strong>Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ffxivcalc.GearSolver.Gear</span> <span class="kn">import</span> <span class="n">ImportGear</span><span class="p">,</span> <span class="n">Food</span>
+<span class="kn">from</span> <span class="nn">ffxivcalc.GearSolver.Solver</span> <span class="kn">import</span> <span class="n">BiSSolver</span><span class="p">,</span> <span class="n">getBaseStat</span><span class="p">,</span> <span class="n">getGearDPSValue</span>
+
+<span class="n">GearSpace</span> <span class="o">=</span> <span class="n">ImportGear</span><span class="p">(</span><span class="s2">&quot;BLMSet.json&quot;</span><span class="p">)</span>
+
+<span class="n">HD</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Honeyed Dragonfruit&quot;</span><span class="p">)</span>
+<span class="n">DB</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Dragonfruit Blend&quot;</span><span class="p">)</span>
+<span class="n">BG</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;SkS&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Baba Ghanoush&quot;</span><span class="p">)</span>
+<span class="n">BE</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Baked Eggplant&quot;</span><span class="p">)</span>
+<span class="n">CW</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;SS&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;DH&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Caviar Sandwich&quot;</span><span class="p">)</span>
+<span class="n">CC</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;Crit&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;SS&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Caviar Canapes&quot;</span><span class="p">)</span>
+<span class="n">MB</span> <span class="o">=</span> <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Marinated Broccoflower&quot;</span><span class="p">)</span>
+<span class="n">BS</span> <span class="o">=</span>  <span class="n">Food</span><span class="p">({</span><span class="s2">&quot;Det&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;Ten&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span> <span class="s2">&quot;Broccoflower Stew&quot;</span><span class="p">)</span>
+<span class="c1">#foodSpace = [CC, CW, BE, HD]</span>
+<span class="n">foodSpace</span> <span class="o">=</span> <span class="p">[</span><span class="n">BE</span><span class="p">]</span>
+
+<span class="n">Crit</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DH</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Det</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Ten</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">materiaSpace</span> <span class="o">=</span> <span class="p">[</span><span class="n">Crit</span><span class="p">,</span> <span class="n">DH</span><span class="p">,</span> <span class="n">Det</span><span class="p">]</span>
+<span class="n">optimal</span><span class="p">,</span> <span class="n">random</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">BiSSolver</span><span class="p">(</span><span class="n">Event</span><span class="p">,</span> <span class="n">GearSpace</span><span class="p">,</span><span class="n">materiaSpace</span><span class="p">,</span> <span class="n">foodSpace</span><span class="p">,</span><span class="n">PercentileToOpt</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;exp&quot;</span><span class="p">],</span> <span class="n">randomIteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">mendSpellSpeed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">minSPDValue</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span><span class="n">maxSPDValue</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">useNewAlgo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">oversaturationIterationsPreGear</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">oversaturationIterationsPostGear</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">findOptMateriaGearBF</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">swapDHDetBeforeSpeed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">minPiety</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="findGCDTimerRange.html" class="btn btn-neutral float-left" title="findGCDTimerRange()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="materiaBiSSolverV3.html" class="btn btn-neutral float-right" title="materiaBiSSolverV3()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

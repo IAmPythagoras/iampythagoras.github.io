@@ -6,7 +6,7 @@ to their unique id.
 
 **Enum**
 
-* BootShine = 53
+* Bootshine = 53
 * TrueStrike = 54
 * Demolish = 66
 * DragonKick = 74

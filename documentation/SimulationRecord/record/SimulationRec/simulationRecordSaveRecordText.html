@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimulationRecord.saveRecordText() &mdash; ffxivcalc 0.8.925 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/dark_mode_js/default_dark.js"></script>
+        <script src="../../../../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="SimulationRecord.saveRecord()" href="simulationRecordSaveRecord.html" />
+    <link rel="prev" title="SimulationRecord.getRecordLength()" href="simulationRecordGetRecordLength.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> ffxivcalc
+          </a>
+              <div class="version">
+                0.8.925
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../GetStarted/getstarted.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Fight/fight.html">Fight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Enemy/enemy.html">Enemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Jobs/jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GearSolver/gearSolverModule.html">GearSolver</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../simulationRecordModule.html">SimulationRecord</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../recordModule.html">record</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../page/pageClass.html">page</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="simulationRecordClass.html">SimulationRecord</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="simulationRecordInit.html">SimulationRecord.__init__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulationRecordAddPage.html">SimulationRecord.addPage()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulationRecordStr.html">SimulationRecord.__str__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulationRecordGetRecordLength.html">SimulationRecord.getRecordLength()</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SimulationRecord.saveRecordText()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulationRecordSaveRecord.html">SimulationRecord.saveRecord()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tester/testerModule.html">Tester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Request/requestModule.html">Request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../helperCode/helperCodeModule.html">helperCode</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ffxivcalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../simulationRecordModule.html">SimulationRecord</a> &raquo;</li>
+          <li><a href="../recordModule.html">record</a> &raquo;</li>
+          <li><a href="simulationRecordClass.html">SimulationRecord</a> &raquo;</li>
+      <li>SimulationRecord.saveRecordText()</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/documentation/SimulationRecord/record/SimulationRec/simulationRecordSaveRecordText.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="simulationrecord-saverecordtext">
+<h1>SimulationRecord.saveRecordText()<a class="headerlink" href="#simulationrecord-saverecordtext" title="Permalink to this heading"></a></h1>
+<p>This function saves the simulation record as a text file. It converts the SimulationRecord object to a string (using SimulationRecord.__str__()) and saves the string to a file. It also allows to filter out some of the pages.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p>idList : list[int] - List of player ids to consider pages of when exporting. If left empty does not filter by player id.</p></li>
+<li><p>path : str - Path and name of the file to save to. (Relative path).</p></li>
+<li><p>startTime : float - Start time to filter by. (Default 0)</p></li>
+<li><p>endTime : float - End time to filter by. (Default 99999)</p></li>
+<li><p>trackAutos : bool - If true the exported record will have pages that are autos. If false these are not included. (Default true)</p></li>
+<li><p>trackDOTs : bool - IF true the exported record will have pages that are DOTs. If false these are not included. (Default true)</p></li>
+<li><p>customizeRecord : bool - If false no attempt at filtering the exported pages will be done. (Default false)</p></li>
+</ul>
+<p><strong>Return</strong></p>
+<p>This function doesn’t return anything, but it saves the file.</p>
+<p><strong>Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newSimRec</span><span class="o">.</span><span class="n">saveRecordText</span><span class="p">([],</span> <span class="s2">&quot;SimulationRecord.txt&quot;</span><span class="p">)</span>
+<span class="c1"># Does not filter any pages.</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="simulationRecordGetRecordLength.html" class="btn btn-neutral float-left" title="SimulationRecord.getRecordLength()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="simulationRecordSaveRecord.html" class="btn btn-neutral float-right" title="SimulationRecord.saveRecord()" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAmPythagoras.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
