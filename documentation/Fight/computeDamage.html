@@ -4,11 +4,12 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ComputeDamage() &mdash; ffxivcalc 0.8.925 documentation</title>
+  <title>ComputeDamage() &mdash; ffxivcalc 0.8.930 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/dark_mode_css/general.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/dark_mode_css/dark.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -25,7 +26,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Enemy" href="../Enemy/enemy.html" />
-    <link rel="prev" title="Fight.SimulateZIPFight()" href="fightSimulateZIPFight.html" /> 
+    <link rel="prev" title="Fight.SimulateZIPFight()" href="FightClass/fightSimulateZIPFight.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,9 +35,10 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
             <a href="../../index.html" class="icon icon-home"> ffxivcalc
+            <img src="../../_static/icon.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.8.925
+                0.8.930
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -51,15 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../GetStarted/getstarted.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../FFLog/importFromFFLog.html">Import fight from FFLogs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="fight.html">Fight</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="fightInnit.html">Fight.__init__()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightAddPlayer.html">Fight.AddPlayer()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightSimulateFight.html">Fight.SimulateFight()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightComputeFunctions.html">Fight.ComputeFunctions()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightDeepCopy.html">Fight.deepCopy()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightGetEnemityList.html">Fight.GetEnemityList()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightPlayerForID.html">Fight.playerForID()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightSimulatePreBakedFight.html">Fight.SimulatePreBakedFight()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fightSimulateZIPFight.html">Fight.SimulateZIPFight()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FightClass/fightClass.html">Fight</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ComputeDamage()</a></li>
 </ul>
 </li>
@@ -104,15 +98,17 @@
 <p>This function is not part of the class <em>Fight</em>.</p>
 </div>
 <p>This function returns the expected damage of an action.</p>
-<p><strong>Parameter</strong>
-* Player : player - Reference to the Player object doing the damage.
-* Potency : int - Potency of the action.
-* Enemy : Enemy - Enemy object taking the damage
-* SpellBonus : float - Multiplicative damage buff applied on this action.
-* type : int - Type of the action. 0 is Direct Damage, 1 is magical DOT, 2 is physical DOT,  3 is autos
-* spellObj : Spell - Object of the spell being casted
-* SavePreBakedAction : bool - If set to true the function will record the action to the player’s PreBakedAction list (if it matches id). False by default.
-* PlayerIDSavePreBakedAction : int - ID of the player for which we want to record the PreBakedActions.</p>
+<p><strong>Parameter</strong></p>
+<ul class="simple">
+<li><p>Player : player - Reference to the Player object doing the damage.</p></li>
+<li><p>Potency : int - Potency of the action.</p></li>
+<li><p>Enemy : Enemy - Enemy object taking the damage</p></li>
+<li><p>SpellBonus : float - Multiplicative damage buff applied on this action.</p></li>
+<li><p>type : int - Type of the action. 0 is Direct Damage, 1 is magical DOT, 2 is physical DOT,  3 is autos</p></li>
+<li><p>spellObj : Spell - Object of the spell being casted</p></li>
+<li><p>SavePreBakedAction : bool - If set to true the function will record the action to the player’s PreBakedAction list (if it matches id). False by default.</p></li>
+<li><p>PlayerIDSavePreBakedAction : int - ID of the player for which we want to record the PreBakedActions.</p></li>
+</ul>
 <p><strong>Return</strong></p>
 <p>This function returns a tuple of 0, ExpectedDamage (int, int).</p>
 <p><strong>Usage</strong></p>
@@ -126,7 +122,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="fightSimulateZIPFight.html" class="btn btn-neutral float-left" title="Fight.SimulateZIPFight()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FightClass/fightSimulateZIPFight.html" class="btn btn-neutral float-left" title="Fight.SimulateZIPFight()" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Enemy/enemy.html" class="btn btn-neutral float-right" title="Enemy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

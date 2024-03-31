@@ -121,6 +121,22 @@ Since there are a lot of attributes, they will be brocken down in different cate
 .. toctree::
 
     playerInnit
+
+    playerSetStat
+    playerAddHealingBuff
+    playerAddMitBuff
+    playerAddShield
+    playerApplyHeal
+    playerTakeDamage
+    playerAddAction
+    playerSetEtroGearset
+    playerIsLastGCD
+    playerSetBasedWeaponDelay
+    playerComputeActionReduction
+    playerComputeActionTimer
+    playerComputeTimeStamp
+    playerGetPlayerPrepullTime
+
     playerClassUpdateTimer
     playerClassUpdateCD
     playerClassUpdateLock

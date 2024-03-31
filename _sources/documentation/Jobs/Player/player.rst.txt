@@ -1,7 +1,7 @@
 Player
 ======
 
-The *Player.py* file contains different class : MitBuff, HealingBuff, Shield, Pet and Player.
+The *Player.py* module contains different class : MitBuff, HealingBuff, Shield, Pet and Player.
 
 **Import**
 

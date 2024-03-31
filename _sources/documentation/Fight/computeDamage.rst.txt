@@ -2,11 +2,13 @@ ComputeDamage()
 ===============
 
 .. note::
+    
     This function is not part of the class *Fight*.
 
 This function returns the expected damage of an action.
 
 **Parameter**
+
 * Player : player - Reference to the Player object doing the damage.
 * Potency : int - Potency of the action.
 * Enemy : Enemy - Enemy object taking the damage
